@@ -1,0 +1,16 @@
+<ion-view title="Signaler un problème" id="page9" style="">
+  <ion-content padding="true" class="has-header">
+    
+    <div id="bug" style="text-align:center;">
+     <form ng-controller="bugCtrl"> 
+     	<h4 style="text-align: left;"><i class="ion-bug"></i> Que s'est-il passé ?</h4>
+		<label class="item item-input">
+		    <textarea ng-model="contentBug" rows="12" placeholder="Expliquer brièvement le problème et les étapes que nous pouvons suivre pour le reproduire..."></textarea>
+		</label>
+		<button type="button" ng-click="sendRapport()" class="button button-block button-assertive">
+		  Envoyer
+		</button>
+     </form>
+    </div>
+  </ion-content>
+</ion-view>

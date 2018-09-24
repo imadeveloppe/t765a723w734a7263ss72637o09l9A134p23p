@@ -1,0 +1,27 @@
+<ion-view title="Tawassol App" id="page9" style="">
+  <ion-content padding="true" class="has-header"  style="background: url(img/background.jpg) left bottom / 100% auto">
+    
+    <div id="bug" style="text-align:center;">
+     <form ng-controller="loginCtrl"  style="border-radius: 5px;"> 
+        <center>
+          <img src="img/logo.png" style="width: 108px;">
+        </center>
+         <div class="list padding">
+            <label class="item item-input">
+              <span class="input-label">Téléphone</span>
+              <input type="tel" ng-model="username">
+            </label>
+            <label class="item item-input" style="margin-top: 10px;">
+              <span class="input-label">Mot de passe</span>
+              <input type="password" ng-model="password">
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-light" ng-click="login()" style="background: rgb(54, 113, 179);color: #fff;">
+              Login
+            </button> 
+        </div> 
+     </form>
+    </div>
+  </ion-content>
+</ion-view>

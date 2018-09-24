@@ -1,0 +1,25 @@
+<ion-view title="A votre écoute" id="list-chats" style="">
+  <div ng-if="!NetworkTrue" class="bar bar-footer bar-assertive" >
+      <div class="title" style="font-size: 11px;"><ion-spinner icon="ios-small" class="spinner-light"></ion-spinner>Pas de connexion internet</div>
+  </div>
+  <ion-content padding="false" class="has-header"> 
+
+    <ion-list id="tawassolApp-list2">
+
+      <ion-item class="item item-avatar" style="margin-top: 5px;" ng-repeat="(key, message) in messages" ng-class="{ 'not-vu' : message.vu == 0 }" ui-sref="tabs.chat({key: key})">
+        
+        <!-- ///// admin to prof  --> 
+        <div ng-if="message.logoEcole == ''" class="item-image" style="background:#fff url(img/nologo.png);background-position: center center; background-size: 100%;background-size: cover"></div>
+        <div ng-if="message.logoEcole != ''" class="item-image" style="background:#fff url({{ urlLogos }}{{ message.logoEcole  }});background-position: center center; background-size: 100%;background-size: cover"></div>
+
+        <h2dark>{{ message.fname }} {{ message.lname }}</h2dark>
+        <span class="message-time"><i class="icon ion-calendar"></i>  {{ message.time*1000 | date:'dd/MM/yyyy' }}</span>
+        <p dir="{{ message.lastMessage.align =='right' ?'rtl' : 'ltr' }}"> {{ message.lastMessage.content }}</p>  
+      </ion-item>
+ 
+       
+    </ion-list> 
+
+</ion-content>
+  <a ui-sref="tabs.chat({'key':'new'})" class="button button-assertive ion-edit BtnSendMessage" style="background: #17a085"></a>
+</ion-view>

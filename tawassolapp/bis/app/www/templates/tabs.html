@@ -1,0 +1,12 @@
+<ion-view title="Tabs" id="page1"> 
+  <ion-tabs class="tabs-positive tabs-icon-only" id="tabs-tabs1" ng-controller="NotifCtrl"> 
+
+    <ion-tab ng-hide="vm.newMessage" ng-model="notifBagde" title="Message" icon="ion-ios-email-outline" href="#/tab/messages" id="tab-messages" badge="(notif <= 0) ? 0 : notif" badge-style="badge-assertive"> 
+      <ion-nav-view name="tab-messages"></ion-nav-view>
+    </ion-tab> 
+    <ion-tab title="Setting" icon="ion-navicon" href="#/tab/setting" id="tab-setting">
+      <ion-nav-view name="tab-setting"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>

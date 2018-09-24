@@ -1,0 +1,59 @@
+
+<ion-view title="{{ student.fname }} {{ student.lname }}"  cache-view="false"  id="page-messages" style="background-color: rgb(255, 255, 255);"> 
+ <ion-nav-buttons side="right" class="has-header">  
+    <button  ui-sref="tabs.setting"  class="button button-clear icon ion-navicon-round" style="margin: 0 10px 0 10px ;"></button> 
+  </ion-nav-buttons>  
+<div ng-if="!NetworkTrue" class="bar bar-footer bar-assertive">
+  <div class="title" style="font-size: 11px;"><ion-spinner icon="ios-small" class="spinner-light"></ion-spinner>Pas de connexion internet</div>
+</div>
+<div class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-if="!filterEleve" style="z-index: 9999999999999">
+    <div class="tabs">
+      <a class="tab-item" ng-class="{'active':active == 1}" ng-click="filter('devoir', 1)"> 
+        <strong>Prof</strong>
+        <span class="badge badge-assertive" ng-if="dataBadge.devoir >0" ng-class="{'hideBadge' : active == 1}">{{ dataBadge.devoir }}</span>
+      </a> 
+      <a class="tab-item"  ng-class="{'active':active == 2}" ng-click="filter('discipline', 2)"> 
+        <strong>Administration</strong>
+        <span class="badge badge-assertive" ng-if="dataBadge.discipline >0" ng-class="{'hideBadge' : active == 2}">{{ dataBadge.discipline }}</span>
+      </a> 
+      <a class="tab-item"  ng-class="{'active':active == 3}" ng-click="filter('actualite', 3)"> 
+        <strong>Événements</strong>
+        <span class="badge badge-assertive" ng-if="dataBadge.actualite >0" ng-class="{'hideBadge' : active == 3}">{{ dataBadge.actualite }}</span>
+      </a> 
+    </div>
+</div>   
+<ion-content padding="false" class="has-header has-subheader"> 
+
+    <ion-refresher spinner="android" pulling-icon="ion-arrow-down-b" pulling-text="Chargement..." on-refresh="RefreshMessages()"></ion-refresher>
+
+    <ion-list id="messages-list2">
+    <div>
+      <ion-item ng-repeat="message in Messages"   
+                ng-if="Messages.length > 0"
+                class="item-avatar dark message-item" 
+                data-message_type="{{ message.message_type }}"
+                ng-class="{'not-vu' : message.vu == 'false' }" >
+        <div class="item-image"  ng-if="message.profil == '' && message.from == 'administration'" ng-click="openPopover( $event, message.ecole, 'img/nologo.png') " style="background:#fff url(img/nologo.png);background-size: 100%;background-size: cover"></div> 
+
+        <div class="item-image"   ng-if="message.profil != '' && message.from == 'administration'"   ng-click="openPopover( $event, message.ecole, message.profil)" style="background:#fff url(' {{ urlLogos }}{{ message.profil }}');background-size: 100%;background-size: cover"></div> 
+        <div class="item-image"  ng-if="message.from == 'prof'" style="background: url(img/home-work.png);background-size: 100%;background-size: cover%"></div>  
+
+        <span ui-sref="tabs.message( { idMessage : {{message.idMessage}} , idClient : {{message.idClient}} } )"> 
+          <span class="message-time"><i class="ion-calendar"></i> {{ message.time }} </span>
+          <h2>
+            {{ message.name }} {{ ( message.matiere != '' ) ? " - "+message.matiere : '' }} 
+          </h2>
+          <p ng-bind-html="message.content | truncate:'<img>' " dir="{{ directionality( message.content ) }}"  ng-class="{'msg-arabe-list':directionality( message.content ) == 'rtl'}" > 
+          </p>
+          <i class="ion-paperclip" ng-if="message.file" style="font-size: 26px;position: absolute;right: 5px;top: 27px;"></i> 
+        </span>
+      </ion-item>
+      <ion-item ng-if="Messages.length == 0" class="item-icon-right assertive">
+      <!-- <ion-item class="item-icon-right assertive"> -->
+        <i class="icon ion-ios-information"></i>
+        Aucun message
+      </ion-item>
+    </div>
+    </ion-list> 
+  </ion-content>
+</ion-view>

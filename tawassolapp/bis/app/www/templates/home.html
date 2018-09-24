@@ -1,0 +1,40 @@
+<ion-view  id="page-home" title="{{ student.fname }}" hide-nav-bar="true" hide-back-button="false">
+  <ion-content > 
+     <div class="fixed">
+     	<div class="table">
+     		<div> 
+     			<div>
+     					<div>
+     						<!-- <img src="img/logo.png"> -->
+     					</div>
+     					<ion-spinner icon="lines" class="spinner-calm"></ion-spinner>
+     			</div>
+     		</div>
+     	</div>	
+     </div>	
+  </ion-content>
+
+<script id="liststudents-home.html" type="text/ng-template">
+  <ion-modal-view class="pagestudents">
+    <ion-header-bar class="bar bar-header bar-stable">
+      <h1 class="title">Faites votre sélection</h1> 
+    </ion-header-bar>
+    <ion-content class="" style="top:48px"> <!-- availableAccounts --> 
+        <ion-list> 
+            <div ng-repeat="student in students">
+                <ion-item ng-click="connectUser(student.idClient)"  class="item-icon-left item-content">
+                    <i ng-if="student.photo == ''" class="icon ion-android-person ion-user"></i>
+                    <span ng-if="student.photo != ''" class="iconstudent" style="background: url('{{ student.photo  }}') center center / 100% auto;top: 5px;"></span>
+                    <strong style="margin-bottom: 4px">{{ student.nom }}</strong>
+                    <div>{{ student.ClassGroupe }}</div> 
+                    <span ng-if="student.badge > 0" class="badge badge-assertive">{{ student.badge }}</span>
+                 </ion-item> 
+            </div>
+                
+
+        </ion-list>  
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+</ion-view>

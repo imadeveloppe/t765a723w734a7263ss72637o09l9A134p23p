@@ -1,0 +1,41 @@
+sudo keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+sudo ionic cordova build --release
+
+sudo jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk alias_name
+
+5gHSshJKD6
+
+cd /Users/pro/Library/Android/sdk/build-tools/27.0.3
+
+./zipalign -v 4 /volumes/ssd/st/git/tawassolapp/tawassolapp/bis/app/android-release-unsigned.apk /volumes/ssd/st/git/tawassolapp/tawassolapp/bis/app/targa.apk
+
+--------
+
+Quels sont vos nom et prénom ?
+  [Unknown]:  Institution Targa
+Quel est le nom de votre unité organisationnelle ?
+  [Unknown]:  tawassolapp
+Quel est le nom de votre entreprise ?
+  [Unknown]:  tawassolapp
+Quel est le nom de votre ville de résidence ?
+  [Unknown]:  marrakech
+Quel est le nom de votre état ou province ?
+  [Unknown]:  menara
+Quel est le code pays à deux lettres pour cette unité ?
+  [Unknown]:  Ma
+
+
+
+
+
+
+
+
+
+
+<key>NSCameraUsageDescription</key>
+	<string>Utilisation : Cette application a besoin d'accéder à votre caméra afin de prendre vos photos de profil</string>
+
+<key>NSPhotoLibraryUsageDescription</key>
+	<string>Accéder à vos photos pour vos photos de profil</string>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "727294489952",
+    "firebase_url": "https://tawassolaprof.firebaseio.com",
+    "project_id": "tawassolaprof",
+    "storage_bucket": "tawassolaprof.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727294489952:android:87678cf7bfd14135",
+        "android_client_info": {
+          "package_name": "com.ionicframework.prof841977"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727294489952-bfvvmmkv0vmi7ohlel6lkq0b0rnj20je.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiVmYXfS0eK5NDGTGNqA4qpFs69Zj43VY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

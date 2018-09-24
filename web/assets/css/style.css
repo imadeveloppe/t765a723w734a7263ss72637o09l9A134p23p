@@ -1,0 +1,694 @@
+.btn-app {
+    border-radius: 3px;
+    position: relative;
+    padding: 15px 5px;
+    padding: 15px 25px;
+    min-width: 80px; 
+    text-align: center;
+    color: #666;
+    border: 1px solid #DDD;
+    background-color: #F4F4F4;
+    font-size: 12px;
+}
+.btn.btn-app {
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    display: block;
+}
+.mce-branding-powered-by{
+    display: none!important;
+}
+.nbrClassesByNiveau .form-group label span{
+	font-weight: normal;
+}
+form .nbrClassesByNiveau .form-group {
+    padding-left: 29px;
+}
+.navbar .navbar-nav > li > a {
+    color: rgb(153, 153, 153);
+    font-size: 15px;
+}
+.item-to-send .content-message span {
+    display: inline-block;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    top: 6px;
+}
+.navbar .navbar-nav > li > a { 
+    font-size: 15px!important;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    cursor: pointer;
+    appearance: none;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    padding-right: 10px;
+}
+.account-logo img {
+    width: 90%;
+    margin-top: 5px;
+}
+.navbar-brand.navbar-brand-image img {
+    height: 80%;
+    width: auto;
+    margin-top: 4%;
+    filter:brightness(100); 
+}
+.checkbox.col-sm-6 {
+    margin-bottom: 13px;
+}
+.checkbox label span,
+.radio label span {
+   display: inline-block;
+   margin-left: 5px;
+}
+.btn{
+    border:0;
+}  
+.btn.btn-default{
+    border: 1px solid #ccc;
+}
+.no-padding{
+    padding: 0!important;
+}
+.center{
+    text-align: center;
+}
+.btn-app  {
+    position: relative;
+}
+.notif {
+    z-index: 1;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #e84b3c;
+    display: inline-block;
+    width: auto;
+    height: 25px;
+    line-height: 22px;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0 5px;
+    min-width: 25px;
+    border: 1px solid #fff;
+    text-align: center;
+}
+.badge { 
+    background-color: #e84b3c; 
+}
+.notif.sub-notif {
+    position: static;
+    text-align: center;
+    min-width: 15px;
+    height: 20px;
+    font-size: 11px;
+    line-height: 18px;
+}
+.btn-app > .fa,
+.btn-app > .glyphicon,
+.btn-app > .ion {
+    font-size: 39px;
+    display: block;
+    margin-bottom: 10px;
+    color: #16A085;
+    position: relative;
+}
+.btn-app:hover > .fa,
+ .btn-app:hover > .glyphicon,
+  .btn-app:hover > .ion { 
+    color: #26665A;
+}
+.icons-home {
+    padding-top: 60px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+.valid-row, .validtoggle{
+    display: inline-block;
+    width: 46px;
+    height: 25px;
+    background: url('../img/icon-toggle-iphone.png') no-repeat 0 0;
+}
+.content {
+    min-height: 305px !important; 
+}
+.valid-row.active, .validtoggle.active{
+    background-position: 0 -25px;
+}
+*{
+    outline: none!important;
+}
+.appellation-groupe .form-horizontal label{   
+    padding-top: 5px;
+}
+.appellation-groupe .form-horizontal select{
+    width: 71px;
+}
+.appellation-groupe .form-group,
+.matieres-enseignees .form-group {
+    position: relative;
+    padding-left: 10px;
+}
+.appellation-groupe h4,
+.matieres-enseignees h4 {
+    margin-bottom: 18px;
+}
+.btn-submit {
+    text-align: right; 
+}
+.matieres-enseignees .btn-submit{
+     padding-top: 30px;
+}
+.matieres-enseignees form{
+    margin-bottom: 0;
+}
+.signaler-probleme .fileupload{
+    margin-top:20px; 
+}
+.radio, .checkbox {     
+    margin-top: 0;
+    margin-bottom: 0; 
+}
+.radio + .radio, .checkbox + .checkbox {
+    margin-top: 0;
+}
+.modal .remove-row-pop{
+    /*margin-top: 28px;*/
+}
+.item-to-send{
+    position: relative;
+}
+ 
+.item-to-send .content-message{
+    margin-bottom: 5px;
+}
+.no-padding-left{
+    padding-left: 0;
+}
+.no-padding-right{
+    padding-right: 0;
+}
+#objets .objets span{
+    display: block;
+background: #f8e5cb;
+padding: 10px;
+margin-bottom: 9px;
+border: 1px solid #f0ad4e;
+cursor: pointer;
+border-radius: 4px;
+}
+.destination {
+    width: 100%;
+    border: 1px solid #ccc;
+    min-height: 33px;
+    border-radius: 3px;
+    padding: 5px;
+}   
+.modal .destinations ul{
+    display: none;
+}
+.modal .destinations li{
+   list-style: none;
+}
+.modal .destinations span{
+   list-style: none;
+   display: inline-block;
+   position: relative;
+   line-height: 30px;
+}
+.modal .destinations span:before{
+  display: block;
+  width: 20px;
+  height: 19px;
+  background: url('../img/checkbox.png') 0 0;
+  content: "";
+  position: absolute;
+  left: -23px;
+  top: 5px;
+  cursor: pointer;
+}
+.modal .destinations .active > span:before{
+  background-position: 0 -19px;
+}
+.modal .destinations li i {
+    font-size: 20px;
+    position: relative;
+    left: 5px;
+    top: 3px;
+    cursor: pointer;
+}
+.destination span {
+    background: #028bff;
+    display: inline-block;
+    padding: 0 7px;
+    margin-right: 5px;
+    border: 1px solid #0b5ca1;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 13px;
+}
+.item-to-send .list-group .list-group{
+    margin-bottom: 0;
+}
+.item-to-send > .list-group > .list-group-item{
+    padding: 15px;
+}
+.item-to-send  .info-sender h3:last-child{
+    margin-bottom: 0;
+}
+a.list-group-item { 
+    padding: 7px 3px 7px 15px;
+}   
+.modal .block-image img {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 20px;
+}
+.mfp-bg { 
+    z-index: 9999; 
+}
+.mfp-wrap { 
+    z-index: 999999;
+}
+
+.clear:after,
+.clear:before{
+    display: block;
+    width: 100%;
+    content: '';
+}
+.send-all{ 
+    margin-bottom: 20px;
+    min-height: 39px;
+}
+.send-all a{
+    color: #69aced;
+}
+li.li-messages,
+li.li-probleme,
+li.li-gerer{
+    position: relative;
+    border: 1px solid rgb(20, 142, 118);
+}
+li.li-messages.active,
+li.li-probleme.active,
+li.li-gerer.active{
+    border: 0;
+} 
+.compte-pas-valider{
+    margin-bottom: 0;
+    text-align: center;
+}
+.next-step{
+    display: none;
+}
+.register-form span.error{
+    position: absolute;
+    top: 9px;
+    right: 7px;
+    font-style: italic;
+    color: #da1010;
+    display: none;
+}
+.register-form input.error{
+    border:1px solid #da1010;
+}
+p.required {
+    text-align: right;
+    font-size: 11px;
+    color: #D10808;
+} 
+input.loading{
+    background: url('../img/loader.gif') no-repeat right center;
+    background-size: auto 90%;
+}
+input.valid{
+        background: url('../img/valid.png') no-repeat 99% center;
+        background-size: auto 70%;
+}
+div.loader{
+    background: rgba(255,255,255,0.7) url('../img/loader.gif') no-repeat center center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    z-index: 9;
+    display: none;
+}
+.form-login{
+    position: relative;
+}
+.form-login .account-form{
+    margin-top: 10px;
+}
+.form-login .account-body-title {
+    margin-bottom: 20px; 
+}
+.form-login .msg {
+    color: rgb(231, 76, 60);
+    font-size: 13px;
+    width: 250px;
+    margin: 0 auto;
+    display: none;
+}
+.modal-body { 
+    min-height: 60px;
+}
+body.modal-open {
+    overflow: unset;
+}
+.item-destinataire {
+    display: inline-block;
+    background: #0ca5bf;
+    padding: 2px 5px;
+    color: #fff;
+    border-radius: 2px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.item-to-send.item-non-vu .list-group-item {
+    background: #e1f4fb;
+}
+.modal#matiere .checkbox label {
+    padding-left: 22px;
+    margin-left: -22px;
+    position: relative;
+}
+.modal#matiere .checkbox label:before { 
+   width: 22px;
+   height:  22px;
+   position: absolute;
+   left: 0;
+   top: 0;
+   content: ''; 
+   z-index: 9;
+}
+.mainbar-toggle {
+    position: relative;
+}
+.mainbar-toggle .notif {
+    left: auto;
+    right: 36%;
+    top: 5px;
+    display: none;
+}
+.mainbar-toggle.collapsed .notif { 
+    display: block;
+}
+.item-to-send .logo-ecole { 
+   text-align: center;
+}
+.item-to-send .logo-ecole span { 
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    border-radius: 50%;
+    border: 1px solid rgb(204, 204, 204);
+}
+.modal .destinations.sendtoparentbyprof > li > span:before {
+    display: none; 
+} 
+.destinations.sendtoparentbyprof {
+    padding-left: 0px;
+}
+.form-send-parent div.loader{
+    position: fixed; 
+    top: 0px;
+}
+.right{
+    float: right;
+}
+.left{
+    float: left;
+}
+.align-center{
+    text-align: center;
+}
+.align-right{
+    text-align: right;
+}
+.fixed-form .file-icon{
+    display: none;
+}
+.form-group.message-lang {
+    padding: 4px 10px;
+    background: #eee;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+.form-group.message-lang p{
+    margin: 0;
+}  
+
+@media (max-width: 767px) {
+
+form.filterEleve .filterBtn{
+    clear: both;
+    margin-top: 44px;
+    float: none;
+    width: 100%;
+}
+.btn.btn-app { 
+    width: 100%;
+    margin-bottom: 10px;
+}
+.portlet.form-send-parent { 
+    padding-bottom: 150px;
+}
+ .form-send-parent input[type="radio"] {  
+    display: inline-block;
+    margin-top: 9px !important;
+}
+ .form-send-parent  .radio label { 
+    padding-left: 6px;
+    line-height: 31px;
+}
+.icons-home {
+    padding-top: 0; 
+}
+.li-messages .notif { 
+    right: 5px;
+    top: 5px;
+    text-align: center;
+}
+.li-messages .notif {
+    right: auto; 
+    margin-left: 10px;
+}
+.col-date{
+    padding-top: 5px;
+}
+.item-to-send .logo-ecole span { 
+    width: 30px;
+    height: 30px;
+}
+body.logout {
+    background: #e6e6e6;
+}
+.fixed-form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.fixed-form  .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.fixed-form .btn-primary {
+    font-size: 0;
+    position: absolute;
+    bottom: 40px;
+    border-radius: 50%;
+    right: 5px;
+}
+.fixed-form .btn-primary i{
+    font-size: 20px;
+}
+.fixed-form .fileupload {
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0; 
+}
+.fixed-form label {
+    display: none;
+}
+.fixed-form .col-md-12, .fixed-form .col-sm-12 {
+   position: static;
+}
+.fixed-form  #message {
+    position: absolute;
+    bottom: 37px;
+    left: 0;
+    height: 39px;
+    padding-right: 40px;
+    padding-left: 5px;
+    border-radius: 0;
+    box-shadow: 0;
+}
+.content-container .content-header { 
+    margin-bottom: 10px; 
+}
+.form-send-parent .portlet-content{
+    padding: 0; 
+}
+.portlet.form-send-parent{ 
+    border: 0px;
+    margin: 0;
+}
+.fixed-form .file-icon{
+    display: block;
+    font-size: 20px;
+}
+.fixed-form .file-text{
+    display: none;
+}
+.fixed-form .form-control{ 
+    white-space: nowrap;
+    overflow: hidden;
+}
+.fixed-form .fileupload-preview { 
+    position: absolute;
+}
+#back-to-top{
+    display: none!important;
+}
+.portlet.form-send-parent textarea#message{
+    white-space: pre-wrap!important;
+    height: 39px;
+}
+.message-lang input[type="radio"]{
+transform: scale(1);
+-ms-transform: scale(1);
+-webkit-transform: scale(1);
+-moz-transform: scale(1);
+-ms-transform: scale(1);
+-o-transform: scale(1);
+}
+.portlet.form-send-parent {
+    padding-bottom: 12px;
+} 
+ 
+
+}
+@media (max-width: 768px){
+    .dropdown-menu.noticebar-menu {
+        display: block !important;
+        position: static;
+    }
+    .navbar-nav>li>.dropdown-menu { 
+        width: 100%;
+    }
+    .dropdown-menu > li.newMsg > a {
+        color: inherit;
+    }
+    .navbar .noticebar > li > a{
+        display: none
+    }
+    .header-continer .navbar .navbar-collapse {
+        background: #15a085; 
+        padding: 0 20px;
+    }
+    .noticebar-item-body span.badge {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+    }
+    body .mainbar { 
+        padding: 0; 
+        border: 0;
+    }
+    span.notif {
+        text-align: center;
+        position: static;
+    }
+    .navbar .navbar-header .navbar-toggle { 
+        color: #fff; 
+    } 
+
+    .navbar-header {
+        background: #15A085;
+    }
+
+    .navbar .navbar-header .navbar-toggle:hover, .navbar .navbar-header .navbar-toggle:focus {
+        background-color: transparent;
+    }
+    .header-continer {
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        box-shadow: 0 0 21px #4a4545;
+    }
+    body {
+        padding-top: 60px;
+    }
+    .item-to-send .list-group .list-group {
+        margin-bottom: 0;
+        padding-left: 11px;
+        margin-top: 22px;
+    }
+    .nav>li { 
+        border-top: 0;
+        padding: 2px 0;
+    }
+    li.li-messages, li.li-probleme, li.li-gerer{
+        border:0;
+        border: 1px solid rgba(20, 142, 118, 0.47);
+    }
+    .nav-tabs>li {
+        float: left;
+        margin-bottom: -1px;
+        width: 100%;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        color: #ffffff!important;
+        font-weight: 600;
+        background: #e84b3c!important;
+        border-radius: 6px;
+    }
+    .espace-prof .navbar-header {
+        background: #1373a7;
+    }
+}
+
+@media (max-width: 600px) { 
+    td.d_b,
+    th.d_b{
+        display: block;
+        width: 100%!important;
+    }
+    .infosRows > tbody > tr > td {
+        border: 0;
+        padding-top: 0;
+    }
+    .infosRows > tbody > tr > th { 
+        padding-bottom: 0;
+    }
+    .table-responsive{
+        border: 0!important;
+    }
+    .btnExpotHistorique{
+        clear: both;
+    }
+    .no-padding{
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}

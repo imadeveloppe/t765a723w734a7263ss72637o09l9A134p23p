@@ -1,0 +1,86 @@
+<ion-view title="<span style='text-transform: none;'> {{ page_title }} </span>"  id="page-message" can-swipe-back="false"> 
+  <ion-content padding="true" class="has-header" style="background: {{ customBackground }};background-size: 100% auto ;background-size: cover;"  ng-controller="messageCtrl">
+    <div id="message-markdown4" class=""> 
+
+      <div class="content-message" style="margin: 0;" ng-if="Message.from == 'prof' "> 
+          <h4 style="margin: 0;"> Prof : {{ Message.prof }}</h4> 
+      </div> 
+       <div class="content-message">
+        <span class="message-time"><i class="ion-calendar"></i> {{ Message.time }} </span>
+          <h4>{{ Message.name }}</h4>
+        <p data-ng-bind-html="trustAsHtml( Message.content )" ng-class="{'msg-arabe':directionality( Message.content )=='rtl'}" dir="{{ (directionality( Message.content )=='rtl') ? 'rtl' : 'ltr' }}">  </p>
+      </div>
+    </div> 
+    
+    <div class="content-message" style="margin: 0;margin-bottom: 18px;" ng-if="Message.date != '' "> 
+        <h5 style="margin: 0;"> Pour le : <a href="#" class="noClick" style="color: #000!important;text-decoration: none!important;">{{ Message.date }}</a></h5> 
+    </div>   
+
+    <!-- //////////// Image ///////////// -->
+    <div class="imagePjMessage" ng-if="Message.file && downloaded && Message.typeFile !='notImage'">
+      <img ng-click="showImage(Message.file)" ng-src="{{ExternalPath}}{{ Message.file }}" > 
+    </div>
+
+    <div class="imagePjMessage" ng-if="Message.file && !downloaded && NetworkTrue && Message.typeFile !='notImage'">  
+      <img ng-src="{{ Message.filePath }}{{ Message.file }}" class="notDownloaded"> 
+      <i ng-if="!downloading" ng-click="downloadImage( Message.file )"  class="ion-arrow-down-a"></i>
+      <img src="img/loader-android.gif" class="ion-spinner" ng-if="downloading" >  
+    </div>
+ 
+    <!-- //////////// End Image ///////////// -->  
+
+
+    <!-- //////////// Document ///////////// -->
+    <div ng-if="Message.file && NetworkTrue && !downloaded && Message.typeFile =='notImage' " class="imagePjMessage" style="border: 0;">
+        <img ng-src="img/doc.png" style="width: 80px;"> 
+        <i ng-if="!downloading" ng-click="openUrl( Message.file )"  class="ion-arrow-down-a"></i>
+        <img src="img/loader-android.gif" class="ion-spinner" ng-if="downloading" >
+    </div> 
+    <div ng-if="Message.file && downloaded && Message.typeFile =='notImage' ">
+        <img ng-click="openLocalUrl( Message.file )" ng-src="img/doc.png" style="width: 80px;"> 
+    </div> 
+     
+    <div class="content-message" ng-if="Message.file && !downloaded && !NetworkTrue" style="margin: 0px;color: white;font-size: 11px;background: #ff4b4b;text-align: center;">  
+        Connectez-vous à internet pour consulter la pièce jointe.
+    </div>
+ 
+    <div>
+        <!-- {{ dataError }}  -->
+    </div>
+  </ion-content>
+</ion-view>
+<script id="image-modal.html" type="text/ng-template">
+    <div class="modal image-modal transparent">
+        <ion-pane class="transparent">
+        <!-- <img src="img/rotate.png" ng-click="rotateImage()" style="z-index: 99999;
+        filter: grayscale(1);
+        -webkit-filter: grayscale(1);
+        -moz-filter: grayscale(1);
+        -ms-filter: grayscale(1);
+        -o-filter: grayscale(1);
+        position: absolute;top: 1px;right: 2px;width: 41px;"> -->
+        <button class="button-clear" ng-click="closeModal()" style="
+        color: #fff;font-family: arial;left: 10px;top: 10px;position: absolute;z-index: 99999;"><i class="icon ion-close-round" style="font-size: 35px !important;"></i></button>
+        <div style="position: relative;z-index: 999;text-align: center;"> 
+          <!-- <button ng-show="ShowBtnDowload" ng-click="downloadImageToGallery()" class="button button-clear"><i class="ion-ios-cloud-download-outline"> Télécharger</i></button> -->
+        </div>
+          <ion-scroll zooming="true"
+        direction="xy" 
+        delegate-handle="zoom-pane" 
+        class="zoom-pane" 
+        min-zoom="1" 
+        scrollbar-x="false" 
+        scrollbar-y="true" 
+        overflow-scroll="false">
+
+              <img ng-src="{{imageSrc}}" class="fullscreen-image" style="
+              transform: rotate({{rotateValue}}deg); 
+              -webkit-transform: rotate({{rotateValue}}deg); 
+              -moz-transform: rotate({{rotateValue}}deg); 
+              -o-transform: rotate({{rotateValue}}deg); 
+              -ms-transform: rotate({{rotateValue}}deg); 
+              transition: 1s"  />
+            </ion-scroll>
+        </ion-pane>
+    </div>
+</script>

@@ -1,0 +1,31 @@
+<ion-view title="Fond d'écran" id="page-message">
+  <ion-content padding="true" class="has-header page-background" style="background: {{ customBackground }}; background-size: 100% auto ;background-size: cover;">
+    <div id="message-markdown4" class=""> 
+      <div class="content-message">
+      <span class="message-time"><i class="ion-calendar"></i>  {{ today }}  </span>
+          <h4>TawassolApp</h4>
+        <p>Faites glisser votre doigt à l'intérieur du cadre pour découvrir notre bibliothèque de fonds d'écran.</p>
+     </div>
+    </div>  
+    <div class="slideContinnere" style="text-align: right;">
+      <button ng-click="appliqueBackground()" style="border: 0;
+                    background: #fff;
+                    padding: 6px 20px;
+                    font-weight: bold;
+                    color: #16a085;
+                    margin-bottom: 8px;
+                    box-shadow: 0px 1px 2px #aaa;
+                    border-radius: 4px;"  >
+        Appliquer
+      </button>
+    	<ion-slide-box on-slide-changed="changeBG($index)">
+	   		<ion-slide ng-repeat="background in data" style="background: {{ background  }}">  
+	     	</ion-slide>  
+	   </ion-slide-box>  
+     <img ng-if="!hideSwip" src="img/icon-swip.png" style="position: absolute;
+    bottom: 37px;
+    left: 10%;
+    width: 70px;">     
+	   </div>
+  </ion-content>
+</ion-view> 

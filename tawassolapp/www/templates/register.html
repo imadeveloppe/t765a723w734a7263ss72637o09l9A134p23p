@@ -1,0 +1,80 @@
+<ion-view title="INSCRIPTION" id="page9" hide-back-button="true">
+
+  <ion-content padding="true" class="has-header"> 
+      <form ng-controller="addStudentCtrl">
+      <div class="list">
+        <label class="item item-input item-stacked-label" id="ajouterUnEnfant-input3">
+          <span class="input-label">Identifiant</span>
+          <input ng-model="code" ng-keydown="changeCode()" placeholder="Saisir l'identifiant de l'élève" type="text" >
+        </label>
+      </div>
+      <button ng-click="verifCode()" ng-hide="codeValide" class="button button-energized  button-block">Valider</button>
+
+
+      <div id="ajouterUnEnfant-form4" class="list" ng-show="codeValide">
+
+        <div class="list">
+          <div class="item item-avatar" style="white-space: normal;">
+            <div style="position: absolute;left: 10px; top: 0;bottom: 0; margin: auto; width: 50px;height: 50px;box-shadow: 0 0 2px #c5c3c3; border-radius: 50%;background: url('{{ photoEcole }}') center center / cover;white-space: normal;"></div> 
+            <h2  style="white-space: normal;font-weight: bold;">{{ nomEcole }}</h2> 
+          </div>
+        </div>  
+        <div class="list">
+          <label class="item item-input item-stacked-label" id="ajouterUnEnfant-input3">
+            <span class="input-label">Prénom d'élève</span>
+            <input ng-model="fname" placeholder="....." type="text" ng-disabled="true" style="-webkit-text-fill-color: #000000;background: #fff;">
+          </label>
+          <label class="item item-input item-stacked-label" id="ajouterUnEnfant-input3">
+            <span class="input-label">Nom d'élève</span>
+            <input ng-model="lname" placeholder="....." type="text" ng-disabled="true" style="-webkit-text-fill-color: #000000;background: #fff;">
+          </label>
+        </div>
+
+
+
+        <div class="list">
+          <div class="item">
+            <div class="row row-center" style="padding: 0">
+              <div class="col" style="padding: 0">
+                <strong>Niveau</strong>
+                <p>{{ niveau }}</p>
+              </div>
+              <div class="col" style="padding: 0">
+                <strong>Classe</strong>
+                <p>{{ classe }}</p>
+              </div>
+              <div class="col" style="padding: 0">
+                <strong>Groupe</strong>
+                <p>{{ groupe }}</p>
+              </div> 
+            </div>
+          </div> 
+      </div> 
+      
+      <div class="list">
+        <label class="item item-input item-stacked-label" id="ajouterUnEnfant-input5">
+          <span class="input-label">Nom et Prénom du parent</span>
+          <input placeholder="...." type="text" ng-model="nomParent">
+        </label>
+        <label class="item item-input item-stacked-label" id="ajouterUnEnfant-input5">
+          <span class="input-label">Numéro de téléphone</span>
+          <input placeholder="...." type="tel" ng-model="telParent">
+        </label>
+         
+      </div> 
+
+      <div class="" style="font-size: 15px;margin-bottom: 3px;">
+        Lire les <a ng-click="openModalCGU()" style="text-decoration: underline;">conditions d'utilisation</a> et la <a ng-click="openModalPoli()" style="text-decoration: underline;">politique de confidentialité</a>
+      </div>
+      <ion-list class="cgu">
+
+        <ion-checkbox ng-model="cgu" ng-checked="cgu">J'ai lu et j'accepte les conditions d'utilisation et la politique de confidentialité</ion-checkbox>
+        <ion-checkbox ng-model="pub" ng-checked="pub">J'accepte de recevoir les offres de TawassolApp et de ses partenaires</ion-checkbox> 
+
+      </ion-list>  
+        
+        <button ng-click="addStudent()" class="button button-balanced  button-block" style="margin-top: 20px;">S'INSCRIRE</button>
+      </div>
+    </form> 
+  </ion-content>
+</ion-view>

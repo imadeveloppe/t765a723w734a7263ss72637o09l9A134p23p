@@ -1,0 +1,30 @@
+<ion-view title="Historique" id="pagehistorique" style="">
+  <div ng-if="!NetworkTrue" class="bar bar-footer bar-assertive" >
+    <div class="title" style="font-size: 11px;"><ion-spinner icon="ios-small" class="spinner-light"></ion-spinner>Pas de connexion internet</div>
+  </div>
+  <ion-content padding="true" class="has-header">
+    <label class="item item-input" id="historique-search1" style="margin-bottom: 12px;">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="search" ng-model="form.search" ng-change="searchInMessage(form.search)" placeholder="Recherche" style="font-size: 12px;">
+    </label>
+    <ion-list id="tawassolApp-list2">
+
+      <ion-item ui-sref="tabs.messageToParent({'key':key})" ng-repeat="(key, message) in dataMessagesToParent.messages | filter:form.search " class="item-avatar dark" ng-class="{ 'NotValidate' : message.state==0, 'HasMark' : message.remarque != '' }">
+        <img src="img/home-work.png" ng-if="message.remarque == ''">
+        <img src="img/mark.png" ng-if="message.remarque != ''">
+        <h2dark style="font-size: 14px;">
+          <span>{{ message.matiere }} </span> <br>
+          <i class="ion-paperclip" ng-if="message.file"  style="font-size: 18px;"></i> 
+          <span ng-repeat="item in message.destination"> <span class="crochet">[</span>{{ item }}<span class="crochet">] </span></span> 
+        </h2dark>
+        <span class="date-message"><i class="icon ion-calendar"></i> {{ message.time*1000 | date:'dd/MM/yyyy' }}</span>
+        <p ng-class="{'messageArabe': directionality( message.content )=='rtl' }" ng-bind-html="message.content | truncate:' '" dir="{{ directionality( message.content ) }}"> </p>
+      </ion-item>
+       <ion-item ng-if="dataMessagesToParent.messages.length == 0" class="assertive" style="text-align: center;"> 
+        Aucun message
+      </ion-item>
+    </ion-list> 
+  </ion-content>
+  <a ui-sref="tabs.nouveauMessage" class="button button-assertive ion-edit BtnSendMessage"></a>
+  <a ui-sref="tabs.absence" class="button button-assertive ion-calendar BtnSendMessage" style="bottom: 80px;background: #387df6;"></a>
+</ion-view>

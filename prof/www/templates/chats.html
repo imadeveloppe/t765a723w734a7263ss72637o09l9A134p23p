@@ -1,0 +1,29 @@
+<ion-view style="" id="chats" title="Communiquer avec l'administration">
+
+	<ion-content class="content-stable" padding="true">
+
+		<div class="messages"> 
+
+		   	<div class="messages" dir="{{ msg.align == 'right' ? 'rtl' : 'ltr' }}" ng-repeat="msg in messages" ng-class=" {'other' : msg.from =='admin'}">
+				<span  class="message" style="white-space: pre;"> {{ msg.content }}</span> 
+				<span class="time">{{ msg.date }}</span>
+			</div> 
+
+			<div class="messages other" ng-if="autoResponse">
+				<span class="message">Merci pour votre message.</span> 
+			</div>  
+
+		</div>
+
+
+
+	</ion-content>
+
+	<ion-footer-bar ng-if="messages.length == 0" keyboard-attach class="bar-stable item-input-inset" style="height: auto;">
+		<label class="item-input-wrapper" style="background: none"> 
+			<textarea ng-change="changeContentMesssage()" dir="{{ txtDirection }}" placeholder="Votre message ici..." rows="1" ng-Required="true" ng-model="data.message" style="width: 100%"></textarea>
+		</label>
+		<button ng-click="sendMessage()" class="button button-positive  icon-right ion-android-send"></button>
+	</ion-footer-bar>
+
+</ion-view>

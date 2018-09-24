@@ -1,0 +1,69 @@
+<ion-view style="" id="chats" title="À votre écoute">
+
+	<ion-content class="content-stable" padding="true">
+
+		<div class="messages" ng-if="!MaxMessage"> 
+
+		   	<div class="messages" ng-repeat="msg in message" dir="{{ msg.align == 'right' ? 'rtl' : 'ltr' }}" ng-class=" {'other' : msg.from =='admin'}">
+				<span  class="message" style="white-space: pre;">{{ msg.content }}</span> 
+				<span class="time">{{ msg.date }}</span>
+			</div> 
+
+			<div class="messages other" ng-if="autoResponse">
+				<span class="message">Merci pour votre message.</span> 
+			</div>  
+
+		</div>
+
+		<div ng-if="MaxMessage" style="border: 1px solid #dcb319;background: #ffc900;padding: 9px 37px;text-align: center;border-radius: 3px;">
+			Vous ne pouvez pas envoyer plus de 5 messages par jour.
+		</div>
+		 
+
+
+	</ion-content> 
+	<ion-footer-bar ng-if="message.length == 0 && !MaxMessage " keyboard-attach class="bar-stable item-input-inset" style="height: auto;background: rgb(255, 255, 255);border-top: 1px solid #cacaca;bottom: -1px;"> 
+		<label class="item-input-wrapper" style="background: none"> 
+			<textarea ng-change="changeContentMesssage()" dir="{{ txtDirection }}" placeholder="Votre message ici..." rows="1" ng-Required="true" ng-model="data.message" style="width: 100%;"></textarea>
+		</label>
+		<button ng-click="sendMessage()" class="button button-positive  icon-right ion-android-send" style="background: #17a085;"></button>
+	
+		
+	</ion-footer-bar>
+
+	
+
+</ion-view>
+
+<script id="liststudents-Modal.html" type="text/ng-template">
+  <ion-modal-view class="pagestudents">
+    <ion-header-bar class="bar bar-header bar-stable">
+      <h1 class="title"></h1>
+      <button class="button button-clear button-primary" ng-click="closeModal()"><strong>Annuler</strong></button>
+    </ion-header-bar>
+    <ion-content class="availableAccountsTouchID"> <!-- availableAccounts -->
+    	<center class="padding">
+    		<h4><strong>Faites votre sélection</strong></h4>
+    	</center>
+        <ion-list> 
+        	<div ng-repeat="student in students">
+        		<ion-item ng-if="student.allowSend == 1" ng-click="chooseStudent(student)"  class="item-icon-left item-content">
+			        <i ng-if="student.photo == ''" class="icon ion-android-person ion-user"></i>
+			        <span ng-if="student.photo != ''" class="iconstudent" style="background: url('{{ student.photo  }}') center center / 100% auto;top: 5px;"></span>
+			        <strong style="margin-bottom: 4px">{{ student.nom }}</strong>
+			        <div>{{ student.ClassGroupe }}</div> 
+			     </ion-item>
+
+			     <ion-item ng-if="student.allowSend == 0" class="item-icon-left item-content" style="background: #e6e6e6;opacity: 0.5;">
+			        <i ng-if="student.photo == ''" class="icon ion-android-person ion-user"></i>
+			        <span ng-if="student.photo != ''" class="iconstudent" style="background: url('{{ student.photo  }}') center center / 100% auto;top: 5px;"></span> 
+			        <strong style="margin-bottom: 4px">{{ student.nom }}</strong>
+			        <p style="line-height: 14px;white-space: normal;">Service suspendu par l'établissement</p> 
+			     </ion-item>
+        	</div>
+	            
+
+        </ion-list>  
+    </ion-content>
+  </ion-modal-view>
+</script>  

@@ -1,0 +1,35 @@
+<ion-view title="Messages reçus" id="pageMessages" style="">
+  <div ng-if="!NetworkTrue" class="bar bar-footer bar-assertive" >
+      <div class="title" style="font-size: 11px;"><ion-spinner icon="ios-small" class="spinner-light"></ion-spinner>Pas de connexion internet</div>
+  </div>
+  <ion-content padding="false" class="has-header">
+    <ion-list id="tawassolApp-list2">
+
+      <ion-item ng-click="openMessage(key, message)" ng-repeat="(key, message) in dataMessages.messages" class="dark itemMessageAdmin" ng-class="{'not-vu':message.vu==0, 'item-avatar' : dataMessages.logoEcole != ''}">
+        
+        <!-- ///// admin to prof  -->
+        <img ng-src="{{ urlLogos }}{{ dataMessages.logoEcole }}" ng-if=" dataMessages.logoEcole != '' && message.categorie == 'prof' ">
+        <h2dark ng-if=" message.categorie == 'prof' ">Administration <i class="ion-paperclip" ng-if="message.file" style="font-size: 18px;"></i> </h2dark>
+        <span class="date-message" ng-if=" message.categorie == 'prof' "><i class="icon ion-calendar"></i>  {{ message.time*1000 | date:'dd/MM/yyyy' }} </span>
+        <p ng-if=" message.categorie == 'prof' " ng-class="{'messageArabe': directionality( message.content )=='rtl' }" ng-bind-html="message.content | truncate:'<img>'" dir="{{ directionality( message.content ) }}"> </p>
+        
+
+        <!-- ///// prof to admin  -->
+        <img ng-src="img/chats.jpg" ng-if=" message.categorie == 'prof-admin' ">
+        <h2dark ng-if=" message.categorie == 'prof-admin' " >Conversation <i class="ion-paperclip" ng-if="message.file" style="font-size: 18px;"></i> </h2dark>
+        <span ng-if=" message.categorie == 'prof-admin' " class="date-message"><i class="icon ion-calendar"></i>  {{ message.time*1000 | date:'dd/MM/yyyy' }} </span>
+        <p ng-if=" message.categorie == 'prof-admin' " ng-class="{'messageArabe': message.align=='right' }" ng-bind-html=" message.lastMessage.content | truncate:'<img>'" dir="{{ message.align=='right' ?'rtl' : 'ltr' }}"> </p>
+       
+
+
+      </ion-item>
+
+      <ion-item ng-if="dataMessages.messages.length == 0" class="item-icon-right assertive" style="text-align: center;"> 
+        Aucun message
+      </ion-item>
+       
+    </ion-list> 
+  </ion-content>
+  <a ui-sref="tabs.chats({'key':'new'})" ng-if="allowSend" class="button button-positive ion-edit BtnSendMessage"></a>
+</ion-view>
+

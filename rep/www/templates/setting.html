@@ -1,0 +1,21 @@
+<ion-view title="Réglages" id="page7" >
+  <ion-content padding="false" class="has-header">
+  
+    <ion-list id="rGlages-list3">
+      <ion-item class="item-icon-left"  >
+        <i class="icon ion-android-contact"></i>{{ rep.nom }}&nbsp;</ion-item>
+        <ion-item class="item-icon-left"  >
+        <i class="icon ion-android-call"></i>{{ rep.tel }}&nbsp;</ion-item>
+        <ion-item class="item-icon-left" style="text-transform:uppercase;" >
+        <i class="icon ion-pound"></i>CODE : {{ rep.code }}&nbsp;</ion-item>
+        <ion-item class="item-icon-left"  ui-sref="tabs.changePwd">
+        <i class="icon ion-locked" ></i>Changer le mot de passe</ion-item>  
+      <!-- <ion-item class="item-icon-left" id="rGlages-list-item14" ui-sref="tabs.about" >
+        <i class="icon ion-information-circled"></i>A propos de TawassolApp</ion-item> -->
+      <ion-item class="item-icon-left" id="bug" ui-sref="tabs.bug" >
+        <i class="icon ion-bug"></i>Signaler un problème</ion-item>
+      <ion-item class="item-icon-left" id="rGlages-list-item15" onClick="navigator.app.exitApp();">
+        <i class="icon ion-android-exit"></i>Quitter l'application</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

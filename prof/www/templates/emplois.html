@@ -1,0 +1,25 @@
+<ion-view title="Emploi du temps" style="background: url(img/bg1.jpeg) bottom center / cover;">
+  <ion-content padding="true" class="has-header">
+
+	
+  	 <ion-scroll zooming="true" 
+  	 	ng-if="emploiProf"
+        direction="xy" 
+        delegate-handle="zoom-pane" 
+        class="zoom-pane" 
+        min-zoom="1" 
+        scrollbar-x="false" 
+        scrollbar-y="true" 
+        overflow-scroll="false"> 
+              <img ng-src="{{emploiProf}}" class="fullscreen-image" style="position: static;" /> 
+    </ion-scroll>
+
+    <div class="" ng-if="!emploiProf && callback" style="background: #fff;
+    padding: 20px 10px;
+    box-shadow: 0 0 10px #b1b1b1;
+    border-radius: 3px;">
+    	Vous n'avez pas d'emplois du temps pour le moment.
+    </div>
+
+  </ion-content>
+</ion-view>

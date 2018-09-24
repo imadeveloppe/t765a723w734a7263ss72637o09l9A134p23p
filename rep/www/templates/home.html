@@ -1,0 +1,26 @@
+<ion-view title="Etablissements"  cache-view="false"  id="page6" style="background-color: rgb(255, 255, 255);"> 
+  <ion-content padding="false" class="has-header">
+
+    <ion-list>
+ 
+        <ion-item class="item item-avatar" ng-repeat="etablissement in etablissements"> 
+            <img src="http://dev.tawassolapp.com/assets/upload/{{ etablissement.logo }}" ng-if="etablissement.logo"> 
+            <img src="img/no-image.png" ng-if="!etablissement.logo"> 
+            <h2 class="oneLine">{{ etablissement.nom }}</h2>
+            <p>
+              Importés : {{ etablissement.nbrClient.imported }}<br>
+              Inscrits : {{ etablissement.nbrClient.regitred }}<br>
+              Validés : {{ etablissement.nbrClient.validated }}<br>
+              Ville : {{ etablissement.ville }}</p>  
+           <label class="toggle toggle-assertive"  style="position: absolute; right: 10px; bottom: 10px;">
+             <input type="checkbox" ng-click="changeState(etablissement.id)" ng-model="state" ng-checked="(etablissement.state == 1) ? true:false ">
+             <div class="track">
+               <div class="handle"></div>
+             </div>
+           </label>
+           <ion-option-button class="button-balanced" ng-click="Call(etablissement.tel)"><i class="ion-android-call" style="font-size: 39px;width: 70px;display: block;text-align: center;"></i></ion-option-button>
+        </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

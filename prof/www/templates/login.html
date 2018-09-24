@@ -1,0 +1,31 @@
+<ion-view title="TawassolApp"  id="page5" style="background: url(img/background.jpg);background-size: 100% auto; background-size: cover">
+  <ion-content padding="true"  ng-controller="loginCtrl">
+    <form id="login-form1" class="list" style="padding: 10px;border-radius: 15px;box-shadow: 0 0 14px rgba(0, 0, 0, 0.37);background: rgba(255, 255, 255, 0.47);">
+      <div>
+        <img src="img/logo.png" style="display: block; height: auto; margin-left: auto; margin-right: auto;width: 99px;;">
+      </div>
+      <div class="spacer" style="height: 10px;"></div>
+      <div class="list list-inset" style="margin: 10px 10px;">
+        <label class="item item-input">
+          <input type="tel" ng-model="form.tel" placeholder="Téléphone">
+        </label>
+        <label class="item item-input">
+          <input type="password" ng-model="form.pwd" placeholder="Mot de passe">
+        </label>
+      </div> 
+      <div class="padding" style="text-align: right;">
+        <a ui-sref="forgetpwd" >Mot de passe oublié</a>
+      </div>
+      <div class="padding">
+        <a ng-click="login()" id="login-button1" class="button button-positive  button-block" style="margin: 0">Se connecter</a>
+      </div>
+      <div class="padding">
+        <a ui-sref="register" id="login-button2" class="button button-positive  button-block button-clear" style="background: rgba(94, 169, 174, 0.8);
+color: #fff;
+box-shadow: 0 0 9px rgba(0, 0, 0, 0.18);
+width: 210px;
+margin: 0 auto;">Créer un compte</a>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

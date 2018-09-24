@@ -1,0 +1,29 @@
+<ion-view title="Mot de passe" id="page9" style="">
+  <ion-content padding="false" class="has-header">
+    
+    <div id="bug" style="text-align:center;">
+     <form ng-controller="pwdCtrl"> 
+         <div class="list "> 
+            <label class="item item-input item-floating-label"> 
+              <span class="input-label">Ancien mot de passe</span>
+              <input type="password" placeholder="Mot de passe courant" ng-model="oldPwd">
+            </label>
+            <label class="item item-input item-floating-label"> 
+              <span class="input-label">Nouveau mot de passe</span>
+              <input type="password" placeholder="Nouveau mot de passe" ng-model="newPwd">
+            </label>
+            <label class="item item-input item-floating-label"> 
+              <span class="input-label">Confirmer le nouveau</span>
+              <input type="password" placeholder="Confirmer le nouveau" ng-model="confirmPwd">
+            </label> 
+            </label>
+        </div>
+        <div class="padding">
+            <button class="button button-block button-positive" ng-click="changePwd()">
+              Changer le mot de passe
+            </button> 
+        </div> 
+     </form>
+    </div>
+  </ion-content>
+</ion-view>

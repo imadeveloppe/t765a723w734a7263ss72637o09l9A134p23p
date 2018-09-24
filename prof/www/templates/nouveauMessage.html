@@ -1,0 +1,209 @@
+<ion-view title="Nouveau message" id="NewMessage" style="">
+   
+  <ion-content padding="true" class="has-header">
+    <div ng-show="true" style="padding-bottom: 70px;">
+ 
+       <div class="card messageNotValidate HasMark" ng-if="editetMessage && editetMessage.remarque != ''" style="margin-top: 0;">
+          <div class="item item-text-wrap">
+            <strong>Remarque:</strong>
+            <p class="ng-binding">{{ editetMessage.remarque }}</p>
+          </div>
+      </div>
+
+        <button ng-click="openModal1()" id="nouveauMessage-button5" class="button button-calm  button-block">Destination</button>
+        <div class="destination" ng-show=" form.destination != '' " style="margin-bottom: 10px;">
+          <ion-scroll class="New-Message-item-destination" direction="x" scrollbar-x="false"> 
+              <span ng-if="editetMessage" class="{{ destinationType }}" ng-repeat="dest in editetMessage.destinationArray"> {{ dest.nom }} </span>
+          </ion-scroll>
+        </div>
+        <div ng-if="data.matieres.length > 1">
+          <button ng-click="openModal2()" id="nouveauMessage-button7" class="button button-calm  button-block" style="margin-top: 0;">Matière</button>
+          <div class="matiereSelected" ng-if=" matiere.selected != 'null' " style="margin-bottom: 10px"><span>{{ data.matieres[matiere.selected].intitule }}</span></div>
+        </div> 
+        <!-- <button ng-click="openModal3()" id="nouveauMessage-button8" class="button button-calm  button-block">Modèles de message</button> -->
+        <input type="hidden" id="destination" ng-model="form.destination">
+        <input type="hidden" id="destination-type" ng-model="form.destinationType">  
+
+        <ion-list style="margin-bottom: 19px;"> 
+          <div ion-datetime-picker date monday-first ng-model="form.dateValue" only-valid="{'after': 'today', 'inclusive': true}" sub-title="Date" class="item item-icon-right ng-pristine ng-untouched ng-valid"  style="padding: 9px 14px;">
+                <i class="icon ion-ios-calendar positive" style="color: rgb(17, 193, 243);"></i>
+                Pour le: 
+                <a href="#" class="noClick" style="color: #000!important;text-decoration: none!important;">{{form.dateValue| date: "dd/MM/yyyy"}}</a>
+            </div>
+        </ion-list>
+
+        <div style="margin-top: 10px;">
+          <textarea ng-model="form.content" class="textarea" style="width: 100%;height: 150px;border-bottom: 2px solid #10c1f3;
+    margin-top: 27px;padding: 4px 8px;" placeholder="Votre message ici" ng-change="changeContentMesssage()" dir="{{ txtDirection }}"></textarea>
+
+          <!-- <span ng-if="form.content == ''" style="color: rgb(170, 170, 170);margin-bottom: -24px;display:  block;padding-left: 10px;" class="">Votre message ici</span>
+          <div data-directive contenteditable="true" ng-model="form.content" ng-bind-html="form.content" dir="{{ txtDirection }}" style="border-bottom: 2px solid #10c1f3;
+    box-shadow: 0 0 2px #ddd;padding: 4px 8px;"></div> -->
+        </div>
+
+        
+        <img ng-if="file!=''" src="{{file}}" style="width: 100px;padding: 4px;margin-top: 10px;border: 2px solid #ccc;">
+        <div ng-if="file=='' && editetMessage && data.oldFile!=''" style="position: relative;display: inline-block;margin-top: 15px;">
+            <span ng-click="removeOldFile()"
+                  style="font-size: 20px;
+                      text-align: center;
+                      padding: 3px 4px;
+                      color: white;
+                      position: absolute;
+                      right: -12px;
+                      top: 0px;
+                      border-radius: 50%;
+                      cursor: pointer;
+                      background: #f15044;" >
+              <i class="ion ion-close-circled"></i>
+            </span>
+          <img  src="{{serverUrl}}assets/upload/{{editetMessage.file}}" style="width: 100px;padding: 4px;margin-top: 10px;border: 2px solid #ccc;">
+        </div>
+
+    </div>
+
+
+
+    <script id="matiere-modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+            <h1 class="title">Matières</h1>
+            <button class="button button-clear button-primary" ng-click="closeModal()">OK</button>
+        </ion-header-bar> 
+        <ion-content class="padding has-header">
+          <ion-list>
+            <ion-radio ng-repeat="(id, item) in data.matieres" ng-model="matiere.selected" ng-value="'{{ id }}'">
+              {{ item.intitule }}
+            </ion-radio>  
+          </ion-list> 
+        </ion-content>
+      </ion-modal-view>
+    </script>
+
+
+
+
+
+
+  <script id="destination-modal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Destination</h1>
+          <button class="button button-clear button-primary" ng-click="closeModal()">OK</button>
+        </ion-header-bar>
+      <ion-content class="padding">
+
+        <ul class="destinations sendtoparentbyprof">
+            <li ng-repeat="(key1, item) in data.destination" class="">
+               <span>{{ item.classe }} </span>
+                <!-- <a class="icon-more active" id="classe{{key1}}"  ng-click="viewList('#classe{{key1}}')">
+                  <i class="ion-android-arrow-dropright-circle"></i>
+                  <i class="ion-android-arrow-dropdown-circle"></i> 
+                </a> -->
+                <ul>
+                  <li ng-repeat="(key2, groupe) in item.groupes" class="">
+                   <span data-iden="groupe{{key1}}-{{key2}}" data-text="{{ groupe.groupe }}" ng-click="SetDestination('[data-iden=groupe{{key1}}-{{key2}}]')" data-id="{{groupe.dataId}}" data-type="groupe">
+                      <i class="ion-android-checkbox-outline-blank icon-check"></i>
+                      {{ groupe.groupe }}
+                    </span>
+                   <a ng-if="groupe.eleves" class="icon-more" id="groupe{{key1}}{{key2}}"  ng-click="viewList('#groupe{{key1}}{{key2}}')">
+                      <i class="ion-android-arrow-dropright-circle"></i>
+                      <i class="ion-android-arrow-dropdown-circle"></i>
+                   </a>
+                      <ul>
+                          <li ng-repeat="(key3, eleve) in groupe.eleves" ng-class="{ 'notRegistred' : eleve.registred == 0 }">
+                             <span data-iden="eleve{{key3}}" data-text="{{ eleve.nom }}" ng-click="SetDestination('[data-iden=eleve{{key3}}]')" data-id="{{eleve.dataId}}" data-type="parent">
+                                <i class="ion-android-checkbox-outline-blank icon-check"></i>
+                                {{ eleve.nom }}
+                              </span> 
+                          </li>
+                      </ul>
+                  </li> 
+                </ul>
+            </li>
+        </ul> 
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  
+
+
+  <script id="model-modal.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Modèles de messages</h1>
+          <button class="button button-clear button-primary" ng-click="closeModal()">OK</button>
+      </ion-header-bar>
+      <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+          <div class="tabs">
+            <soan ng-click="changeLangue('fr')" class="tab-item active" ng-class="{active: isFr}"> 
+              Français
+            </soan>
+            <span ng-click="changeLangue('ar')" class="tab-item" ng-class="{active: !isFr}"> 
+              Arabe
+            </span> 
+          </div>
+        </div>
+      <ion-content class="padding" style="padding-top: 60px;">
+        <div ng-show="isFr">
+          <div ng-if="modele.align == 'left'" ng-repeat="modele in data.modeles">
+            <ion-item class="item-stable" 
+                      ng-click="toggleGroup(modele)"  
+                      ng-class="{active: isGroupShown(modele)}">
+                <i class="icon" ng-class="isGroupShown(modele) ? 'ion-minus' : 'ion-plus'"></i>
+              &nbsp;
+              {{modele.title}}
+            </ion-item>
+            <div class="item-accordion"   
+                      style="padding: 8px;box-shadow: 0 0 3px rgb(110, 110, 110);"
+                      ng-show="isGroupShown(modele)">
+              <div data-ng-bind-html="trustAsHtml( modele.content )" style="font-size: 16px;line-height: 22px;"></div>
+              <div style="text-align: right;">
+                <button ng-click="selectModele(modele)" class="button button-small button-positive" style="padding: 0px 13px;">
+                  Je choisi
+                </button>
+              </div> 
+            </div> 
+          </div>
+        </div>
+        <div ng-show="!isFr">
+          <div ng-if="modele.align == 'right'" ng-repeat="modele in data.modeles">
+            <ion-item class="item-stable"
+                      dir="rtl"
+                      ng-click="toggleGroup(modele)"
+                      ng-class="{active: isGroupShown(modele)}">
+                <i class="icon" ng-class="isGroupShown(modele) ? 'ion-minus' : 'ion-plus'"></i>
+              &nbsp;
+              {{modele.title}}
+            </ion-item>
+            <div class="item-accordion"   
+                      dir="rtl"
+                      style="padding: 8px;box-shadow: 0 0 3px rgb(110, 110, 110);"
+                      ng-show="isGroupShown(modele)">
+              <div data-ng-bind-html="trustAsHtml( modele.content )" style="font-size: 17px;line-height: 25px;"></div>
+              <div style="text-align: left;">
+                <button ng-click="selectModele(modele)" class="button button-small button-positive" style="padding: 0px 13px;">
+                  Je choisi
+                </button>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  </ion-content>
+  <div id="nouveauMessage-container2"> 
+      <button id="atachmentFile" ng-click="ChooserFile()"   class="button button-calm  icon ion-android-attach"></button> 
+      <button id="sendMessage" ng-click="sendMessage()" class="button button-assertive  icon-right ion-android-send"></button>
+      <span ng-if="file!=''">
+          <i class="ion-paperclip" style="font-size: 22px;float: left;margin-right: 8px;"></i> 
+          Pièce jointe 
+          <i ng-click="removeFile()" class="icon ion-close-circled assertive" style="font-size: 22px;float: right;"></i> 
+      </span>
+  </div> 
+
+</ion-view>
+
