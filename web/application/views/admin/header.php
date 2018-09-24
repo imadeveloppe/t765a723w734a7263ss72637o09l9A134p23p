@@ -320,9 +320,7 @@ function hasAccess($access){
                 </form>
               </div>
             </li>
-            <script type="text/javascript">  
-              $('select[name=niveau]').val( <?= $info['niveau'] ?> )
-            </script>
+            
             <li class="dropdown navbar-profile"> 
               <a class="dropdown-toggle" style="color: #fff;"> 
 
@@ -356,6 +354,58 @@ function hasAccess($access){
       <div class="mainbar-collapse collapse">
 
         <ul class="nav navbar-nav mainbar-nav">
+
+          <li class="hidden-lg hidden-md hidden-sm">
+            <form action="" method="post" id="changeNiveau">
+              <select name="niveau" class="form-control" onchange="this.form.submit()" style="margin: 0 2%;width: 96%;">
+                      
+                <?php if( $info['subAdmin'] ): ?>
+                  <!-- ////////////////////////////////////////////////////////////////// -->
+                    <?php  if(in_array('0', $arrayNiveau) &&  isset($info['access'][getNiveauByIndex(0)])  ): ?>
+                      <option value="0">Préscolaire</option>
+                    <?php  endif; ?>
+
+                    <?php  if(in_array('1', $arrayNiveau) &&  isset($info['access'][getNiveauByIndex(1)]) ): ?>
+                      <option value="1">Primaire</option>
+                    <?php  endif; ?>
+
+                    <?php  if(in_array('2', $arrayNiveau) &&  isset($info['access'][getNiveauByIndex(2)]) ): ?>
+                      <option value="2">Collège</option>
+                    <?php  endif; ?>
+
+                    <?php  if(in_array('3', $arrayNiveau) &&  isset($info['access'][getNiveauByIndex(3)]) ): ?>
+                      <option value="3">Lycée</option> 
+                    <?php  endif; ?>
+
+                <?php else: ?>
+
+                    <!-- ////////////////////////////////////////////////////////////////// -->
+                    <?php  if(in_array('0', $arrayNiveau)): ?>
+                      <option value="0">Préscolaire</option>
+                    <?php  endif; ?>
+
+                    <?php  if(in_array('1', $arrayNiveau)): ?>
+                      <option value="1">Primaire</option>
+                    <?php  endif; ?>
+
+                    <?php  if(in_array('2', $arrayNiveau)): ?>
+                      <option value="2">Collège</option>
+                    <?php  endif; ?>
+
+                    <?php  if(in_array('3', $arrayNiveau)): ?>
+                      <option value="3">Lycée</option> 
+                    <?php  endif; ?>
+                    <!-- ////////////////////////////////////////////////////////////////// -->
+                <?php endif; ?>
+
+              </select>
+            </form>
+          </li>
+
+
+          <script type="text/javascript">  
+            $('select[name=niveau]').val( <?= $info['niveau'] ?> )
+          </script>
 
         <?php 
           $niveau = $info['niveau'];

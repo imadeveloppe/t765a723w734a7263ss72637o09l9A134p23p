@@ -59,7 +59,6 @@ input[type="radio"] {
     height: 80%;
     width: auto;
     margin-top: 4%;
-    filter:brightness(100); 
 }
 .checkbox.col-sm-6 {
     margin-bottom: 13px;
@@ -84,27 +83,23 @@ input[type="radio"] {
 .btn-app  {
     position: relative;
 }
-.notif {
-    z-index: 1;
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    background: #e84b3c;
-    display: inline-block;
-    width: auto;
-    height: 25px;
-    line-height: 22px;
-    color: #fff;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 13px;
-    padding: 0 5px;
-    min-width: 25px;
-    border: 1px solid #fff;
-    text-align: center;
-}
-.badge { 
-    background-color: #e84b3c; 
+ .notif {
+z-index: 1;
+position: absolute;
+top: -15px;
+right: -15px;
+background: red;
+display: inline-block;
+width: auto;
+height: 30px;
+line-height: 25px;
+color: #fff;
+border-radius: 17%;
+font-weight: bold;
+font-size: 15px;
+padding: 0 5px;
+min-width: 30px;
+border: 1px solid #fff; 
 }
 .notif.sub-notif {
     position: static;
@@ -586,87 +581,7 @@ transform: scale(1);
  
 
 }
-@media (max-width: 768px){
-    .dropdown-menu.noticebar-menu {
-        display: block !important;
-        position: static;
-    }
-    .navbar-nav>li>.dropdown-menu { 
-        width: 100%;
-    }
-    .dropdown-menu > li.newMsg > a {
-        color: inherit;
-    }
-    .navbar .noticebar > li > a{
-        display: none
-    }
-    .header-continer .navbar .navbar-collapse {
-        background: #15a085; 
-        padding: 0 20px;
-    }
-    .noticebar-item-body span.badge {
-        position: absolute;
-        top: 6px;
-        right: 6px;
-    }
-    body .mainbar { 
-        padding: 0; 
-        border: 0;
-    }
-    span.notif {
-        text-align: center;
-        position: static;
-    }
-    .navbar .navbar-header .navbar-toggle { 
-        color: #fff; 
-    } 
 
-    .navbar-header {
-        background: #15A085;
-    }
-
-    .navbar .navbar-header .navbar-toggle:hover, .navbar .navbar-header .navbar-toggle:focus {
-        background-color: transparent;
-    }
-    .header-continer {
-        position: fixed;
-        top: 0;
-        z-index: 9999;
-        width: 100%;
-        box-shadow: 0 0 21px #4a4545;
-    }
-    body {
-        padding-top: 60px;
-    }
-    .item-to-send .list-group .list-group {
-        margin-bottom: 0;
-        padding-left: 11px;
-        margin-top: 22px;
-    }
-    .nav>li { 
-        border-top: 0;
-        padding: 2px 0;
-    }
-    li.li-messages, li.li-probleme, li.li-gerer{
-        border:0;
-        border: 1px solid rgba(20, 142, 118, 0.47);
-    }
-    .nav-tabs>li {
-        float: left;
-        margin-bottom: -1px;
-        width: 100%;
-    }
-
-    .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-        color: #ffffff!important;
-        font-weight: 600;
-        background: #e84b3c!important;
-        border-radius: 6px;
-    }
-    .espace-prof .navbar-header {
-        background: #1373a7;
-    }
-}
 
 @media (max-width: 600px) { 
     td.d_b,

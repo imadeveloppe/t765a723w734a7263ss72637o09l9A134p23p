@@ -231,7 +231,7 @@
         <div class="loader"></div>
         <div class="form-group" style="">
           <div class="col-md-12">
-            <label class="col-md-3">Qui somme nous</label>  
+            <label class="col-md-3">Qui sommes nous</label>  
             <div class="col-md-9">
               <div class="fileupload fileupload-new" data-provides="fileupload">
                 <div class="input-group">

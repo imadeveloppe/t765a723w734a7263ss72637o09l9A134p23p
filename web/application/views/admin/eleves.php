@@ -138,7 +138,7 @@
                 <button class="btn btn-secondary" data-toggle="modal" href="#new-eleve">
                   <strong>
                     <i class="fa fa-plus-circle" style="font-size: 20px;""></i> 
-                    Nouveau élève
+                    Nouvel élève
                   </strong> 
                 </button>
                 </div>

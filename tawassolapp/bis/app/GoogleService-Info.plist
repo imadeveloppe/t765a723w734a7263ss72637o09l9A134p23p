@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>120320337817-vkrcc6to13ihgmec0vfpn4oo9d9pf33q.apps.googleusercontent.com</string>
+	<string>120320337817-nfkppuqs93i3q6iqjhm6odkmtofce4hf.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.120320337817-vkrcc6to13ihgmec0vfpn4oo9d9pf33q</string>
+	<string>com.googleusercontent.apps.120320337817-nfkppuqs93i3q6iqjhm6odkmtofce4hf</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD8c3ADKrWRj48ALEltjtLoU9drKcTKx4c</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.tawassolapp.institution.targa</string>
+	<string>com.tawassolapp.mirage</string>
 	<key>PROJECT_ID</key>
 	<string>tawassolapp-10e74</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:120320337817:ios:d8f999fe1657cd39</string>
+	<string>1:120320337817:ios:ea0d4cf0cfcabd19</string>
 	<key>DATABASE_URL</key>
 	<string>https://tawassolapp-10e74.firebaseio.com</string>
 </dict>

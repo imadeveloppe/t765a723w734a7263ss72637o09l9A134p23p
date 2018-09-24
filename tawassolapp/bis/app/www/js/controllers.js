@@ -132,14 +132,14 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 	}
 
 
-	// ////////////////////////////////////////////////////////
-	// $scope.login({
-	// 	adresseMac   : "3A90369C-0603-4F56-A9A5-3B3D1CA6B577",
-	// 	token	: "3A90369C-0603-4F56-A9A5-3B3D1CA6B577",
-	// 	appname: API.appId
-	// }) 
-	// localStorage.setItem('adresseMac',"3A90369C-0603-4F56-A9A5-3B3D1CA6B577"); 
-	// ////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////
+	$scope.login({
+		adresseMac   : "a3cb43e5-24e6-b536-3570-550854191028",
+		token	: "a3cb43e5-24e6-b536-3570-550854191028",
+		appname: API.appId
+	}) 
+	localStorage.setItem('adresseMac',"a3cb43e5-24e6-b536-3570-550854191028"); 
+	////////////////////////////////////////////////////////
 
 	function onDeviceReady() { 
 		var element = document.getElementById('deviceProperties'); 
@@ -1259,7 +1259,7 @@ function ($scope, $stateParams) {
 	cordova.getAppVersion.getVersionNumber().then(function (AppVersion) {
 		$scope.appVersion = AppVersion;
 	})
-
+	
 }])
 
 .controller('backgroundCtrl', ['$scope', '$stateParams','$loader','$cordovaToast', 
