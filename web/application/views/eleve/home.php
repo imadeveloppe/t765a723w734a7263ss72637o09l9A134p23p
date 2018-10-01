@@ -14,8 +14,12 @@
 
 <body>
   
-  <div class="container" style="padding-top:20px">
+  <div class="container header" style="padding-top:20px">
       <img src="<?php echo base_url() ?>assets/img/logo.png" class="logoapp" alt="Site Logo">
+
+      <a href="" class="openMenu">
+        <i class="fa fa-bars fa-2x pull-right" aria-hidden="true"></i>
+      </a>
   </div>
   <div class="container app">
     <div class="row app-one">
@@ -28,7 +32,7 @@
           <div class="row searchBox">
             <div class="col-sm-12 searchBox-inner">
               <div class="form-group has-feedback">
-                <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
+                <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Recherche">
                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
               </div>
             </div>
@@ -71,6 +75,11 @@
                           <div class="content" style="display: none;"><?= $message->content ?></div>
                           <?php $message->content =strip_tags($message->content) ?>
                           <div class="json" style="display: none;"><?= json_encode( $message ) ?></div>
+
+                          <div class="searchArea" style="display: none;">
+                            <?= strip_tags($message->content) ?>
+                            <?= strip_tags($message->matiere) ?>
+                          </div>
                         </div> 
                       </div>
 
@@ -118,8 +127,8 @@
         <!-- Message Box -->
         <div class="row message" id="conversation" style="display: none;">
 
-           
-          <div class="row message-body" style="margin-top: 13px!important;">
+           <a class="mobile_close_message"><i class="fa fa-close"></i> Fermer</a>
+          <div class="row message-body">
             <div class="col-sm-12">
               <div class="receiver">
                 <span class="message-time pull-right">xx/xx/xxxx</span>
@@ -251,7 +260,7 @@
         $('#conversation .pj,#conversation .pj-file').hide();
       }
 
-      $('#conversation').fadeIn()
+      $('#conversation,.conversation').fadeIn()
 
       if( !data.messageObject.vu ){
         $.ajax({
@@ -275,14 +284,20 @@
       $(".side-two").toggleClass('active');
     })
 
+    $('a.mobile_close_message').click(function (e) {
+      e.preventDefault()
+      $('.message-item, .side-two').removeClass('active')
+      $('#conversation,.conversation').fadeOut()
+    })
+
     $("#conversation, .sideBar").click(function () {
       $(".side-two").removeClass('active');
     })
 
     $('#searchText').keyup(function (e) {
        $('.message-item').each(function () {
-            var text = $(this).text();
-            var input = $('#searchText').val();
+            var text = $(this).find('.searchArea').text().toLowerCase();
+            var input = $('#searchText').val().toLowerCase();
             if( text.search(input) >= 0 ){
               $(this).show()
             }else{

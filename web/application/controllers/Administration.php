@@ -366,7 +366,7 @@ class Administration extends CI_Controller {
 						$this->messages[] = $this->messages('CompteNotVerified');
 					}  
 					$data['message'] = $this->messages;
-					$data['title'] = "Gestion | eleves";
+					$data['title'] = "Gestion | Élèves";
 					$data['info'] = $this->session->userdata();
 					$data['page'] = 'gestion';
 					$this->load->view('admin/header.php',$data); 
@@ -1244,7 +1244,7 @@ class Administration extends CI_Controller {
 			return $this->SettingCentre->GetClientByClass();
 		}
 		public function SendMessageToProf()
-		{  
+		{   
 			if( isset($_POST['destination']) && !empty($_POST['destination']) ){
 
 				if( !$this->verified() ){

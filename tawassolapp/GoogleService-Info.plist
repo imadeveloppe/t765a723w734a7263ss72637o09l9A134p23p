@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>120320337817-37u0g4r8qem8kcee2p8pk73uk88cnc1o.apps.googleusercontent.com</string>
+	<string>120320337817-btd52f49hab0or57292op4v3vna525pm.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.120320337817-37u0g4r8qem8kcee2p8pk73uk88cnc1o</string>
+	<string>com.googleusercontent.apps.120320337817-btd52f49hab0or57292op4v3vna525pm</string>
 	<key>API_KEY</key>
 	<string>AIzaSyD8c3ADKrWRj48ALEltjtLoU9drKcTKx4c</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,23 +17,23 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ionicframework.app538533</string>
+	<string>com.tawassolapp.app</string>
 	<key>PROJECT_ID</key>
 	<string>tawassolapp-10e74</string>
 	<key>STORAGE_BUCKET</key>
 	<string>tawassolapp-10e74.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:120320337817:ios:e4de19d805c32262</string>
+	<string>1:120320337817:ios:f5e9d4d57852856b</string>
 	<key>DATABASE_URL</key>
 	<string>https://tawassolapp-10e74.firebaseio.com</string>
 </dict>

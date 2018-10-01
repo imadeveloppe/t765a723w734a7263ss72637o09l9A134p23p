@@ -1,3 +1,6 @@
+<!-- 
+<pre><?php print_r($info) ?></pre>
+ -->
 <div class="content-header">
   <h2 class="content-header-title">Boite de réception</h2>
   <ol class="breadcrumb">

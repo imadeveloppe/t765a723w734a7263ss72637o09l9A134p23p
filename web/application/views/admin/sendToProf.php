@@ -113,7 +113,7 @@ $(document).ready(function () {
   $('body').on('click','#confirmation .confirm',function() {
     $('.loader').fadeIn();
     setTimeout(function () {
-      $('form')[1].submit();
+      $('form#sendprof').submit();
     },1000)
   })  
   $('body').on('click','#sendprof #submitbtn',function() { 

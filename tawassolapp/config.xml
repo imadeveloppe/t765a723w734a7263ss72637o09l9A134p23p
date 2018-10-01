@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ionicframework.app538533" version="1.1.11" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.tawassolapp.app" version="0.0.002" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>TawassolApp</name>
     <description>Une communication numérique, pour une école innovante</description>
     <author email="contact@tawassolapp.com" href="http://tawassolapp.com/">tawassolApp</author>
@@ -76,6 +76,10 @@
         <icon height="1024" src="resources/ios/icon/icon-1024.png" width="1024" />
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
+    <chcp>
+        <config-file url="http://tawassolapp.com/93874293mobile_app_923847/chcp.json" />
+    </chcp>
+    <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-crop" spec="~0.3.1" />
     <plugin name="cordova-plugin-image-picker" spec="git+https://github.com/wymsee/cordova-imagePicker.git">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value=" " />
@@ -93,4 +97,5 @@
     </plugin>
     <plugin name="cordova-plugin-app-version" spec="^0.1.9" />
     <plugin name="cordova-plugin-uniquedeviceid" spec="~1.3.2" />
+    <plugin name="cordova-hot-code-push-plugin" spec="^1.5.3" />
 </widget>

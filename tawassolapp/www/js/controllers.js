@@ -133,18 +133,16 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 
 
 	////////////////////////////////////////////////////////
-	$scope.login({
-		adresseMac   : "a3cb43e5-24e6-b536-3570-550854191028",
-		token	: "a3cb43e5-24e6-b536-3570-550854191028",
-		appname: API.appId
-	}) 
-	localStorage.setItem('adresseMac',"a3cb43e5-24e6-b536-3570-550854191028"); 
+	// $scope.login({
+	// 	adresseMac   : "a3cb43e5-24e6-b536-3570-550854191028",
+	// 	token	: "a3cb43e5-24e6-b536-3570-550854191028",
+	// 	appname: API.appId
+	// }) 
+	// localStorage.setItem('adresseMac',"a3cb43e5-24e6-b536-3570-550854191028"); 
 	////////////////////////////////////////////////////////
 
 	function onDeviceReady() { 
-		var element = document.getElementById('deviceProperties'); 
-
-
+		var element = document.getElementById('deviceProperties');  
 
 
 		if( localStorage.getItem('login') == "false" || localStorage.getItem('login') == "" ){ 

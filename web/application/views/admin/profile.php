@@ -236,7 +236,7 @@
               <div class="fileupload fileupload-new" data-provides="fileupload">
                 <div class="input-group">
                   <div class="form-control" style="white-space: nowrap;overflow: hidden;">
-                      <i class="fa fa-file fileupload-exists" style="display: inline;"></i> <span class="fileupload-preview" style="position: absolute;left: 31px;top: 7px;color:#a2a2a2">PDF : présentation de l'etablissement</span>
+                      <i class="fa fa-file fileupload-exists" style="display: inline;"></i> <span class="fileupload-preview" style="position: absolute;left: 31px;top: 7px;color:#a2a2a2">PDF : présentation de l'établissement</span>
                   </div>
                   <div class="input-group-btn">
                     <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Supprimer</a>
