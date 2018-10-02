@@ -93,7 +93,7 @@
 
               </div>
               <div class="form-group" style="clear: both;padding-top: 30px;">
-                <form class="form-response" action="Administration/responseMessageToAdminByParent">
+                <form class="form-response" action="Administration/responseMessageToAdminByProf">
                 <center style="margin-bottom: 20px;">
                   <button type="button" class="btn btn-danger delete-message">Supprimer cette conversation</button>
                 </center>
