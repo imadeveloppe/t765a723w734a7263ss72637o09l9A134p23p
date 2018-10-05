@@ -19,7 +19,7 @@
 <div id="myTab1Content" class="tab-content">
   <div class="tab-pane fade in <?= (!isset($_POST['classe'])) ? 'active' : '' ?>" id="new">
     <div class="panel-group accordion" id="accordion">
-  
+<?php if($absences): ?>
     <?php foreach ($absences as $key => $list): ?>
      <div class="panel panel-default">
       <div class="panel-heading">
@@ -48,6 +48,7 @@
                   <th>Prénom</th> 
                   <th style="text-align: center;">Absence</th> 
                   <th style="text-align: center;">Retard</th>  
+                  <th style="text-align: center;">Justifiée</th>  
                 </tr>
               </thead>
               <tbody>
@@ -62,6 +63,9 @@
                           </td>
                           <td style="text-align: center;" class="retard">
                               <input type="checkbox" name="retard[]" value="<?= $student->idClient ?>" <?= $student->retard ? 'checked' : '' ?>>
+                          </td>
+                          <td style="text-align: center;" class="justifier">
+                              <input type="checkbox" name="justifier[]" value="<?= $student->idClient ?>" <?= $student->justifier ? 'checked' : '' ?>>
                           </td>
                         </tr>
 
@@ -152,6 +156,13 @@
       </div>
     </div> <!-- /.panel-default --> 
   <?php endforeach ?> 
+
+<?php else: ?>
+  <div class="alert alert-danger">
+      <a class="close" data-dismiss="alert" href="#" aria-hidden="true">×</a>
+      <strong>Pas d'absence pour l'instant</strong>
+  </div>
+<?php endif; ?>
 </div> <!-- /.accordion -->
   </div>
   <div class="tab-pane fade in <?= (isset($_POST['classe'])) ? 'active' : '' ?>" id="old">
@@ -245,7 +256,7 @@
       </div> 
 
       <div style="text-align: right;">
-         <button id="clonesubmitbtn" type="submit"  class="btn btn-primary">Rechercher</button>  
+         <button id="clonesubmitbtn" type="submit"  class="btn btn-primary">Rechercher <i class="fa fa-loop"></i></button>  
       </div>
         </form>
       </div>
@@ -264,9 +275,10 @@
                 </a>
               </h4>
             </div>
+ 
 
             <div id="collapse-search-<?= $key ?>" class="panel-collapse collapse <?= $key == 0 ? 'in' : '' ?>">
-              <div class="panel-body">
+              <form class="panel-body">
                   <p>
                     <strong>Date :</strong> <?= date('d-m-Y <b>à</b> H:i', strtotime( $list->date_time )) ?> 
                   </p>
@@ -276,13 +288,14 @@
                   <p> 
                     <strong>Professeur :</strong> <?= $list->prof ?>
                   </p>
-                  <table  class="table table-striped table-bordered table-hover table-highlight" id="students" >  
+                  <table  class="table table-striped table-bordered table-hover table-highlight disabled" id="students" >  
                     <thead>
                       <tr > 
                         <th>Nom</th> 
                         <th>Prénom</th> 
                         <th style="text-align: center;">Absence</th> 
                         <th style="text-align: center;">Retard</th>  
+                        <th style="text-align: center;">Justifiée</th>  
                       </tr>
                     </thead>
                     <tbody>
@@ -293,10 +306,13 @@
                                 <td><?= $student->lname ?></td>
                                 <td><?= $student->fname ?></td>
                                 <td style="text-align: center;" class="absence">
-                                    <input type="checkbox" name="absence[]" disabled value="<?= $student->idClient ?>" <?= $student->absence ? 'checked' : '' ?>>
+                                    <input type="checkbox" name="absence[]" value="<?= $student->idClient ?>" <?= $student->absence ? 'checked' : '' ?>>
                                 </td>
                                 <td style="text-align: center;" class="retard">
-                                    <input type="checkbox" name="retard[]" disabled value="<?= $student->idClient ?>" <?= $student->retard ? 'checked' : '' ?>>
+                                    <input type="checkbox" name="retard[]" value="<?= $student->idClient ?>" <?= $student->retard ? 'checked' : '' ?>>
+                                </td> 
+                                <td style="text-align: center;" class="justifier">
+                                    <input type="checkbox" name="justifier[]" value="<?= $student->idClient ?>" <?= $student->justifier ? 'checked' : '' ?>>
                                 </td>
                               </tr>
 
@@ -356,6 +372,7 @@
                               <th style="text-align: left;">Prénom</th> 
                               <th style="text-align: center;">Absence</th> 
                               <th style="text-align: center;">Retard</th>  
+                              <th style="text-align: center;">Justifiée</th>  
                             </tr>
                           </thead>
                           <tbody>
@@ -371,6 +388,9 @@
                                       <td style="text-align: center;" class="retard">
                                           <?= $student->retard ? 'X' : '' ?>
                                       </td>
+                                      <td style="text-align: center;" class="justifier">
+                                          <?= $student->retard ? 'X' : '' ?>
+                                      </td>
                                     </tr>
 
                             <?php endforeach ?> 
@@ -378,12 +398,14 @@
                         </table>
                     </div> 
                   </div>
-
+ 
                   <div style="text-align: right;">
                       <button  type="button"  class="btn btn-secondary printBtn">Imprimer <i class="fa fa-print"></i></button> 
+                      <button  type="button"  class="btn btn-warning editBtn">Modifier <i class="fa fa-pencil"></i></button>
+                      <button  type="button"  class="btn btn-success saveBtn" style="display: none;">Enregitrer <i class="fa fa-save"></i></button> 
                   </div>
- 
-              </div>
+                  <input type="hidden" name="idAbsence" value="<?= $list->id ?>">
+              </form>
             </div>
           </div> <!-- /.panel-default --> 
         <?php endforeach ?> 
@@ -398,6 +420,12 @@
 <style type="text/css">
   .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
       background-color: #fff6a4;
+  }
+  table.disabled .icheckbox_minimal-blue {
+      pointer-events: none
+  }
+  table.disabled .icheckbox_minimal-blue ins{
+      opacity: 0.5!important;
   }
 </style>
 
@@ -464,16 +492,30 @@
       showMeridian: false
     }) 
 
+    $('.editBtn').click(function () {
+      $(this).parents('.panel-body').find('table').removeClass('disabled').parent().find('.saveBtn').show()
+
+    })
+
+    $('.saveBtn').click(function () {
+      $(this).parents('.panel-body').find('table').addClass('disabled')
+      $(this).hide()
+      var formData = $(this).parents('form').serialize() 
+      $.ajax({
+          type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+          url         : '<?= base_url() ?>Administration/updateAbsence', // the url where we want to POST
+          data        : formData, // our data object
+          dataType    : 'text' // what type of data do we expect back from the server 
+      })
+
+    })
+
   }) 
 </script>
   </div>
 </div>
 
-
-
-<!-- <pre>
-  <?php print_r($absences) ?>
-</pre> -->
+ 
 
 <script src="<?= base_url() ?>assets/js/plugins/icheck/jquery.icheck.js"></script> 
 <link rel="stylesheet" href="<?= base_url() ?>/assets/js/plugins/icheck/skins/minimal/blue.css">

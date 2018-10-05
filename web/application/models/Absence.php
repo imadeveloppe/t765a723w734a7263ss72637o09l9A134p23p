@@ -188,6 +188,13 @@ class Absence extends CI_Model {
 
     }
 
+    public function getDetailOne( $id_absence )
+    {     
+        $query = $query = $this->db->get_where($this->table_detail, array('id_absence'=>$id_absence));  
+        return $query->result();  
+
+    }
+
     public function updateState( $id_absence, $state = 1 )
     {     
         $this->db->update($this->table, array("state"=>$state), array('id' => $id_absence));
@@ -210,7 +217,7 @@ class Absence extends CI_Model {
 
             $content = $client->fname." ".$client->lname." a été déclaré(e) absent(e) le ".date('d/m/Y', strtotime($absent->date_time))." lors de la séance de ".$absent->intitule_matiere."  à ".date('H:i', strtotime($absent->date_time)).".";
 
-            $this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
+            //$this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
         }
 
         foreach ($_POST['retard'] as $key => $idClient) {
@@ -220,9 +227,41 @@ class Absence extends CI_Model {
 
             $content = $client->fname." ".$client->lname." a été déclaré(e) en retard le ".date('d/m/Y', strtotime($retard->date_time))." lors de la séance de ".$retard->intitule_matiere."  à ".date('H:i', strtotime($retard->date_time)).".";
 
-            $this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
+            //$this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
         } 
  
         $this->updateState($_POST['idAbsence']);
+
+        $this->updateAbsence();
+    }
+
+    public function updateAbsence()
+    { 
+
+        $formData = $_POST;
+        
+        foreach ($this->getDetailOne($_POST['idAbsence']) as $key => $db_absence) {
+
+            $data = array(
+                "absence" => 0,
+                "retard" => 0,
+                "justifier" => 0 
+            );
+
+            if( in_array($db_absence->idClient, $formData['absence'])  ){
+                $data['absence'] = 1;
+            }
+
+            if( in_array($db_absence->idClient, $formData['retard'])  ){
+                $data['retard'] = 1;
+            }
+
+            if( in_array($db_absence->idClient, $formData['justifier'])  ){
+                $data['justifier'] = 1;
+            }
+
+            $this->db->update($this->table_detail, $data, array('idClient' => $db_absence->idClient, 'id_absence' => $formData['idAbsence']));
+        }
+ 
     }
 } ?>

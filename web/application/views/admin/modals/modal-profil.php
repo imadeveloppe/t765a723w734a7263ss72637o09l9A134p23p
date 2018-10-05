@@ -143,6 +143,11 @@
                   <input type="checkbox" name="access[prescolaire][]" value="validsent"> <span>Valider les envois des professeurs</span>
                 </label>
               </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="access[prescolaire][]" value="absence"> <span>Absence</span>
+                </label>
+              </div>
 
               <h4 style="margin-top: 20px">
                 Messages reçus
@@ -252,6 +257,11 @@
               <div class="checkbox">
                 <label>
                   <input type="checkbox" name="access[primaire][]" value="validsent"> <span>Valider les envois des professeurs</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="access[primaire][]" value="absence"> <span>Absence</span>
                 </label>
               </div>
 
@@ -366,6 +376,11 @@
                   <input type="checkbox" name="access[college][]" value="validsent"> <span>Valider les envois des professeurs</span>
                 </label>
               </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="access[college][]" value="absence"> <span>Absence</span>
+                </label>
+              </div>
 
               <h4 style="margin-top: 20px">
                 Messages reçus
@@ -474,6 +489,11 @@
               <div class="checkbox">
                 <label>
                   <input type="checkbox" name="access[lycee][]" value="validsent"> <span>Valider les envois des professeurs</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="access[lycee][]" value="absence"> <span>Absence</span>
                 </label>
               </div>
 

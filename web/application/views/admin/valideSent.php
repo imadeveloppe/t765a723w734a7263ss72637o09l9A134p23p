@@ -156,6 +156,7 @@
     var selectRow = $(this).parents('.item-to-send');
     var idMessage = selectRow.attr('data-id');
     $(this).parents('.item-to-send').find('.loader').fadeIn();
+    window.notification();
     $.get(
           '<?php echo base_url() ?>Administration/sendMessage/'+idMessage,
           function (data) {

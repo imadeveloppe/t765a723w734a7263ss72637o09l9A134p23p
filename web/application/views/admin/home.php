@@ -31,7 +31,7 @@
     </div> 
   <?php endif; ?>  
 
-  <?php if( hasAccess('absense') ): ?>
+  <?php if( hasAccess('absence') ): ?>
     <div class="col-sm-3 center">
       <a href="<?= base_url() ?>Administration/absence" class="btn btn-app"> 
         <i class="fa fa-calendar"></i> Absence / Retard<br>&nbsp;

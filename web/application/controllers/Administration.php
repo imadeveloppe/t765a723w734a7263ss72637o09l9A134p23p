@@ -561,7 +561,7 @@ class Administration extends CI_Controller {
 			if( $this->isLogedAdmin() ){	
 
 
-				if( !$this->hasAccess('validsent') ) { 
+				if( !$this->hasAccess('absence') ) { 
 						redirect('Administration/access_denied'); exit(); 
 				}
 
@@ -1745,6 +1745,12 @@ class Administration extends CI_Controller {
  			$this->Absence->sendAbsence();  
 
  			redirect('Administration/absence');
+ 		}
+
+ 		public function updateAbsence()
+ 		{
+			$this->load->model('Absence');
+ 			$this->Absence->updateAbsence(); 
  		}
 
  		public function countAbsence()
