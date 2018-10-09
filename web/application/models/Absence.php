@@ -217,7 +217,7 @@ class Absence extends CI_Model {
 
             $content = $client->fname." ".$client->lname." a été déclaré(e) absent(e) le ".date('d/m/Y', strtotime($absent->date_time))." lors de la séance de ".$absent->intitule_matiere."  à ".date('H:i', strtotime($absent->date_time)).".";
 
-            //$this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
+            $this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
         }
 
         foreach ($_POST['retard'] as $key => $idClient) {
@@ -227,7 +227,7 @@ class Absence extends CI_Model {
 
             $content = $client->fname." ".$client->lname." a été déclaré(e) en retard le ".date('d/m/Y', strtotime($retard->date_time))." lors de la séance de ".$retard->intitule_matiere."  à ".date('H:i', strtotime($retard->date_time)).".";
 
-            //$this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
+            $this->Messages->autoSendMessageToParent( $client->idCentre, $client->niveau, $client->idClient, $content );
         } 
  
         $this->updateState($_POST['idAbsence']);
@@ -262,6 +262,8 @@ class Absence extends CI_Model {
 
             $this->db->update($this->table_detail, $data, array('idClient' => $db_absence->idClient, 'id_absence' => $formData['idAbsence']));
         }
+
+        // $this->updateState($_POST['idAbsence'], 0);
  
     }
 } ?>

@@ -424,6 +424,16 @@
 
 
 <script type="text/javascript">
+
+
+  function apply_iCheck() {
+    $('input:checkbox').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue',
+      inheritClass: true
+    }) 
+  }
+
   $(document).ready(function () {
     $('input:checkbox, input:radio').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
@@ -582,6 +592,24 @@
     $('form').submit(function () {
       $(this).find('.loader').show()
     })
+
+ 
+
+    $('.checkrow').on('ifChanged', 'input.readonly', function (event) { 
+        var readwrite = $(this).parents('.checkrow').find('input.readwrite');
+        if($(this).is(":checked")){
+          readwrite.prop('checked', true);
+        }
+        apply_iCheck()
+    });
+
+    $('.checkrow').on('ifChanged', 'input.readwrite', function (event) { 
+        var readonly = $(this).parents('.checkrow').find('input.readonly');
+        if(readonly.is(":checked") && !$(this).is(":checked") ){
+          readonly.prop('checked', false);
+        }
+        apply_iCheck()
+    });
 
 
   })

@@ -27,24 +27,28 @@
             <div class="portlet-content">          
               <div class="table-responsive"> 
 
+              
+              <?php if( !hasAccess('gerer_profs_readonly') or !$info['subAdmin'] ): ?> 
+                  <div class="block-buttons" style="text-align: right; margin-bottom: -29px;">
+                     
+                      <a data-toggle="modal" href="#tousSuspendre"  class="btn btn-danger hidden-xs"> 
+                        <strong>
+                          <i class="fa fa-times-circle" aria-hidden="true" style="font-size: 20px;position: relative;bottom: -2px;"></i> 
+                          Tout suspendre 
+                        </strong>
+                      </a>
 
-              <div class="block-buttons" style="text-align: right; margin-bottom: -29px;">
-                 
-                  <a data-toggle="modal" href="#tousSuspendre"  class="btn btn-danger hidden-xs"> 
-                    <strong>
-                      <i class="fa fa-times-circle" aria-hidden="true" style="font-size: 20px;position: relative;bottom: -2px;"></i> 
-                      Tout suspendre 
-                    </strong>
-                  </a>
+                       <a data-toggle="modal" href="#tousValider" class="btn btn-success hidden-xs"> 
+                        <strong>
+                          <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 20px;position: relative;bottom: -2px;"></i> 
+                          Tout valider
+                        </strong>
+                      </a>
 
-                   <a data-toggle="modal" href="#tousValider" class="btn btn-success hidden-xs"> 
-                    <strong>
-                      <i class="fa fa-check-circle" aria-hidden="true" style="font-size: 20px;position: relative;bottom: -2px;"></i> 
-                      Tout valider
-                    </strong>
-                  </a>
+                  </div>
+              <?php endif; ?> 
 
-              </div>
+
               <table 
                 class="table table-striped table-bordered table-hover table-highlight table-checkable" 
                 data-provide="datatable" 
@@ -65,10 +69,14 @@
                       <th data-filterable="true" data-sortable="true">Téléphone</th>
                       <th >Matière</th>
                       <th data-filterable="false">Classe/Groupe</th>
-                      <th data-filterable="false" >Valider Compte <span class="badge btn-primary"><?= $validateUsers ?>/<?= count($profs) ?></span></th>
-                      <th data-filterable="false" class="hidden-xs">Mot de passe</th>
-                      <th data-filterable="false" class="hidden-xs">Auto Envois</th> 
-                      <th data-filterable="false" class="hidden-xs">Supprimer</th>
+
+                      <?php if( !hasAccess('gerer_profs_readonly') or !$info['subAdmin'] ): ?> 
+                        <th data-filterable="false" >Valider Compte <span class="badge btn-primary"><?= $validateUsers ?>/<?= count($profs) ?></span></th> 
+                        <th data-filterable="false" class="hidden-xs">Mot de passe</th>
+                        <th data-filterable="false" class="hidden-xs">Auto Envois</th> 
+                        <th data-filterable="false" class="hidden-xs">Supprimer</th>
+                      <?php endif; ?> 
+
                     </tr>
                   </thead>
                   <tbody>
@@ -88,34 +96,41 @@
                         <a  data-toggle="modal" href="#view-matiere"  class="btn btn-secondary view-matiere">
                           <i class="fa fa-search"></i>
                         </a> 
+                        <?php if( !hasAccess('gerer_profs_readonly') or !$info['subAdmin'] ): ?> 
                          <a  data-toggle="modal" href="#edit-matiere" class="btn btn-warning edit-matiere hidden-xs">
                           <i class="fa fa-pencil"></i>
                         </a>
+                        <?php endif; ?> 
                       </td>
 
                       <td class="center"> 
                        <a  data-toggle="modal" href="#view-group" class="btn btn-secondary view-group">
                           <i class="fa fa-search"></i>
                         </a> 
+                        <?php if( !hasAccess('gerer_profs_readonly') or !$info['subAdmin'] ): ?> 
                          <a  data-toggle="modal" href="#edit-group" class="btn btn-warning edit-group hidden-xs">
                           <i class="fa fa-pencil"></i>
                         </a>
+                        <?php endif; ?> 
                       </td>  
-                      <td class="center">
-                        <a href="#" class="valid-row <?= ($prof->state == '1') ? 'active' : '' ?>"></a> 
-                      </td> 
-                      <td  class="center hidden-xs">
-                        <a  data-toggle="modal" href="#edit-pwd" class="btn btn-warning edit-pwd">
-                          <i class="fa fa-pencil"></i>
-                      </td>
-                      <td class="center hidden-xs">
-                        <a href="#" class="validtoggle prof-fidele <?= ($prof->fidele == '1') ? 'active' : '' ?>"></a> 
-                      </td> 
-                      <td class="center hidden-xs">
-                        <a  data-toggle="modal" href="#confirmation" class="btn btn-danger remove-row">
-                          <i class="fa fa-trash-o"></i>
-                        </a>
-                      </td>
+
+                      <?php if( !hasAccess('gerer_profs_readonly') or !$info['subAdmin'] ): ?> 
+                        <td class="center">
+                          <a href="#" class="valid-row <?= ($prof->state == '1') ? 'active' : '' ?>"></a> 
+                        </td> 
+                        <td  class="center hidden-xs">
+                          <a  data-toggle="modal" href="#edit-pwd" class="btn btn-warning edit-pwd">
+                            <i class="fa fa-pencil"></i>
+                        </td>
+                        <td class="center hidden-xs">
+                          <a href="#" class="validtoggle prof-fidele <?= ($prof->fidele == '1') ? 'active' : '' ?>"></a> 
+                        </td> 
+                        <td class="center hidden-xs">
+                          <a  data-toggle="modal" href="#confirmation" class="btn btn-danger remove-row">
+                            <i class="fa fa-trash-o"></i>
+                          </a>
+                        </td>
+                      <?php endif; ?> 
                     </tr>
                   <?php endforeach; ?>
                       

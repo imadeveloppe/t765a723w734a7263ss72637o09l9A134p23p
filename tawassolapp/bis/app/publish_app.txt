@@ -1,5 +1,10 @@
 sudo keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
 
+
+cd /st/git/t765a723w734a7263ss72637o09l9A134p23p/tawassolapp/bis/app
+
+sudo ionic cordova run android
+
 sudo ionic cordova build --release
 
 sudo jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk alias_name
@@ -7,8 +12,21 @@ sudo jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release
 5gHSshJKD6
 
 cd /Users/pro/Library/Android/sdk/build-tools/27.0.3
+cd /Users/imac/Library/Android/sdk/build-tools/26.0.2
 
-./zipalign -v 4 /volumes/ssd/st/git/tawassolapp/tawassolapp/android-release-unsigned.apk /volumes/ssd/st/git/tawassolapp/tawassolapp/tawassolapp.apk
+./zipalign -v 4 /st/git/t765a723w734a7263ss72637o09l9A134p23p/tawassolapp/bis/app/android-release-unsigned.apk /st/git/t765a723w734a7263ss72637o09l9A134p23p/tawassolapp/bis/app/mirage.apk
 
 --------
 
+Quels sont vos nom et prénom ?
+  [Unknown]:  Institution Les deux Palmiers
+Quel est le nom de votre unité organisationnelle ?
+  [Unknown]:  Tawassolapp
+Quel est le nom de votre entreprise ?
+  [Unknown]:  Tawassolapp
+Quel est le nom de votre ville de résidence ?
+  [Unknown]:  Marrakech
+Quel est le nom de votre état ou province ?
+  [Unknown]:  Menara
+Quel est le code pays à deux lettres pour cette unité ?
+  [Unknown]:  Ma

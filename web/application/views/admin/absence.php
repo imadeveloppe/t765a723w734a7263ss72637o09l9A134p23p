@@ -48,7 +48,7 @@
                   <th>Prénom</th> 
                   <th style="text-align: center;">Absence</th> 
                   <th style="text-align: center;">Retard</th>  
-                  <th style="text-align: center;">Justifiée</th>  
+                  <th style="text-align: center;">justifié(e)</th>  
                 </tr>
               </thead>
               <tbody>
@@ -130,6 +130,7 @@
                               <th style="text-align: left;">Prénom</th> 
                               <th style="text-align: center;">Absence</th> 
                               <th style="text-align: center;">Retard</th>  
+                              <th style="text-align: center;">justifié(e)</th>  
                             </tr>
                           </thead>
                           <tbody>
@@ -144,6 +145,9 @@
                                       </td>
                                       <td style="text-align: center;" class="retard">
                                           <?= $student->retard ? 'X' : '' ?>
+                                      </td>
+                                      <td style="text-align: center;" class="justifier">
+                                          <?= $student->justifier ? 'X' : '' ?>
                                       </td>
                                     </tr>
 
@@ -295,7 +299,7 @@
                         <th>Prénom</th> 
                         <th style="text-align: center;">Absence</th> 
                         <th style="text-align: center;">Retard</th>  
-                        <th style="text-align: center;">Justifiée</th>  
+                        <th style="text-align: center;">justifié(e)</th>  
                       </tr>
                     </thead>
                     <tbody>
@@ -372,7 +376,7 @@
                               <th style="text-align: left;">Prénom</th> 
                               <th style="text-align: center;">Absence</th> 
                               <th style="text-align: center;">Retard</th>  
-                              <th style="text-align: center;">Justifiée</th>  
+                              <th style="text-align: center;">justifié(e)</th>  
                             </tr>
                           </thead>
                           <tbody>
@@ -389,7 +393,7 @@
                                           <?= $student->retard ? 'X' : '' ?>
                                       </td>
                                       <td style="text-align: center;" class="justifier">
-                                          <?= $student->retard ? 'X' : '' ?>
+                                          <?= $student->justifier ? 'X' : '' ?>
                                       </td>
                                     </tr>
 
@@ -541,7 +545,7 @@
   apply_iCheck()
 
 
-  $('#students').on('ifChanged', '.absence input', function (event) { 
+    $('#students').on('ifChanged', '.absence input', function (event) { 
 
       var retard = $(this).parents('tr').find('.retard input')
       if( retard.is(":checked") ){

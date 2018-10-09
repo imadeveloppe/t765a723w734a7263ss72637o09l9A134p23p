@@ -132,14 +132,15 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 	}
 
 
-	////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////
 	// $scope.login({
 	// 	adresseMac   : "a3cb43e5-24e6-b536-3570-550854191028",
 	// 	token	: "a3cb43e5-24e6-b536-3570-550854191028",
 	// 	appname: API.appId
 	// }) 
 	// localStorage.setItem('adresseMac',"a3cb43e5-24e6-b536-3570-550854191028"); 
-	////////////////////////////////////////////////////////
+	
+	//////////////////////////////////////////////////////
 
 	function onDeviceReady() { 
 		var element = document.getElementById('deviceProperties');  
@@ -576,9 +577,9 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 		////////////////////////////////////////////////////////////////////////////////////////////////
 
 		if( ionic.Platform.isIOS() ){
-      		// $scope.ExternalPath = cordova.file.documentsDirectory;
+      		$scope.ExternalPath = cordova.file.documentsDirectory.replace(/^file:\/\//, '');
       		// $scope.ExternalPath = cordova.file.applicationStorageDirectory
-      		$scope.ExternalPath = cordova.file.dataDirectory+"/";//cordova.file.documentsDirectory
+      		// $scope.ExternalPath = cordova.file.dataDirectory;//cordova.file.documentsDirectory
       	}else{
       		// $scope.ExternalPath = "file:///data/data/com.imad.tawassolapp/files/";
       		// $scope.ExternalPath = cordova.file.externalDataDirectory; 
@@ -588,7 +589,7 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 
 		$scope.$on('$ionicView.beforeEnter', function() {
 	        $scope.customBackground = localStorage.getItem('customBackground'); 
-	        //$scope.fileDownloaded = false;
+	        $scope.fileDownloadedFromServer = false;
 	    });
 	    $scope.trustAsHtml = function(string) {
 		    return $sce.trustAsHtml(string);
@@ -602,64 +603,69 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 			}
 		}
 	    $scope.DownloadFile = function(fileName) {   
-	    	
-	      	var urlFile = API.server+"assets/upload/"+fileName; 
+	    	if( !$scope.fileDownloadedFromServer ){
+	    		var urlFile = API.server+"assets/upload/"+fileName; 
 
-	      	var targetPath = $scope.ExternalPath+fileName;
-	      	
-		    var trustHosts = true;
-		    var options = {};  
-			
-		    $cordovaFileTransfer.download(urlFile, targetPath, options, trustHosts)
-		    .then(function(result) {  
-		    	console.log("success Download", result)   
+		      	var targetPath = $scope.ExternalPath+fileName;
+		      	
+			    var trustHosts = true;
+			    var options = {};  
+				
+			    $cordovaFileTransfer.download(urlFile, targetPath, options, trustHosts)
+			    .then(function(result) {  
+			    	console.log("success Download", result)   
 
-		        $scope.downloading = false; 
-		        $scope.downloaded = true;  
+			        $scope.downloading = false; 
+			        $scope.downloaded = true;  
 
-		        var JSONDownloadedFIle = JSON.parse( localStorage.getItem('fileDownloaded') ); 
-		    	JSONDownloadedFIle[$scope.Message.idMessage] = $scope.Message.idMessage;
-		    	localStorage.setItem('fileDownloaded', JSON.stringify( JSONDownloadedFIle ) );
+			        var JSONDownloadedFIle = JSON.parse( localStorage.getItem('fileDownloaded') ); 
+			    	JSONDownloadedFIle[$scope.Message.idMessage] = $scope.Message.idMessage;
+			    	localStorage.setItem('fileDownloaded', JSON.stringify( JSONDownloadedFIle ) );
 
-		    	$scope.downloadFileToGallery( targetPath ); // for android
+			    	$scope.downloadFileToGallery( targetPath ); // for android
+			    	$scope.fileDownloadedFromServer = true;
 
-		    },function(err) { 
-		       console.log("error Download", err) 
-		    },function(progress) {
-		        console.log("Downloading...", progress) 
-		    }); 
+			    },function(err) { 
+			       console.log("error Download", err) 
+			    },function(progress) {
+			        console.log("Downloading...", progress) 
+			    }); 
+	    	}
+		      	
 			
 
 	    }
 		$scope.downloadImage = function (fileName) {
 
-	    	$scope.downloading = true; 
-	    	var urlImage = API.server+"assets/upload/android/"+fileName;   
-	      	var targetPath = $scope.ExternalPath+fileName; 
+			if( !$scope.fileDownloadedFromServer ){
+		    	$scope.downloading = true; 
+		    	var urlImage = API.server+"assets/upload/android/"+fileName;   
+		      	var targetPath = $scope.ExternalPath+fileName; 
 
-	      	console.log("HERE", urlImage) 
-	      	 
-      		$cordovaFileTransfer.download(urlImage, targetPath, {}, true)
-		    .then(function(result) {    
-		    	console.log("success Download", result)  
-		    	$scope.downloading = false; 
-		        $scope.downloaded = true;   
+		      	console.log("HERE", urlImage) 
+		      	 
+	      		$cordovaFileTransfer.download(urlImage, targetPath, {}, true)
+			    .then(function(result) {    
+			    	console.log("success Download", result)  
+			    	$scope.downloading = false; 
+			        $scope.downloaded = true;   
 
-		        var JSONDownloadedFIle = JSON.parse( localStorage.getItem('fileDownloaded') ); 
-		    	JSONDownloadedFIle[$scope.Message.idMessage] = $scope.Message.idMessage;
-		    	localStorage.setItem('fileDownloaded', JSON.stringify( JSONDownloadedFIle ) );
+			        var JSONDownloadedFIle = JSON.parse( localStorage.getItem('fileDownloaded') ); 
+			    	JSONDownloadedFIle[$scope.Message.idMessage] = $scope.Message.idMessage;
+			    	localStorage.setItem('fileDownloaded', JSON.stringify( JSONDownloadedFIle ) );
 
-		        $scope.downloadFileToGallery( targetPath );
-		        
+			        $scope.downloadFileToGallery( targetPath );
+			        
 
-		    },function(err) {  
-		    	console.log("error Download", err) 
-		        $scope.downloading = false; 
-		        $scope.downloaded = false; 
-		        
-		    },function(progress) { 
-		    	console.log("Downloading...", progress) 
-		    }); 
+			    },function(err) {  
+			    	console.log("error Download", err) 
+			        $scope.downloading = false; 
+			        $scope.downloaded = false; 
+			        
+			    },function(progress) { 
+			    	console.log("Downloading...", progress) 
+			    }); 
+		    }
 	    }
 
 	    
@@ -800,18 +806,39 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 
 	    $scope.downloadFileToGallery = function ( targetPath ) { 
 
-	    	if( !$scope.fileDownloaded ){
-	    		$scope.fileDownloaded = true;
-	    		
+	    	if( !$scope.fileDownloadedFrom ){
+	    		$scope.fileDownloaded = true;  
 
-		    	window.cordova.plugins.imagesaver.saveImageToGallery(targetPath, onSaveImageSuccess, onSaveImageError); 
-				function onSaveImageSuccess(success) {
-				  $scope.fileDownloaded = true;
-				} 
-				function onSaveImageError(error) { 
-					console.log("Save Image error", error);
-					$scope.fileDownloaded = false;
-				}
+	    		cordova.plugins.diagnostic.getCameraRollAuthorizationStatus(function(status){
+	                switch(status){
+	                    case cordova.plugins.diagnostic.permissionStatus.NOT_REQUESTED:  
+	                    case cordova.plugins.diagnostic.permissionStatus.DENIED:  
+
+				    		cordova.plugins.diagnostic.requestCameraRollAuthorization(function(status){
+								if( status == cordova.plugins.diagnostic.permissionStatus.GRANTED ){
+									window.cordova.plugins.imagesaver.saveImageToGallery(targetPath, function () {
+										$scope.fileDownloaded = true;
+									}, function () {
+										console.log("Save Image error", error);
+										$scope.fileDownloaded = false;
+									}); 
+								}
+							}, function(error){
+			                    q.reject(JSON.stringify(error));
+			                });
+
+			            	break;
+
+			            case cordova.plugins.diagnostic.permissionStatus.DENIED:  
+							window.cordova.plugins.imagesaver.saveImageToGallery(targetPath, function () {
+								$scope.fileDownloaded = true;
+							}, function () {
+								console.log("Save Image error", error);
+								$scope.fileDownloaded = false;
+							});
+							break;
+			    	}
+			    })
 	    	}
 	    	
 	    }
@@ -1253,9 +1280,9 @@ function ($scope, $state, $stateParams, $rootScope, $AjaxQuery, $cordovaBadge, $
 .controller('aboutCtrl', ['$scope', '$stateParams', 
 function ($scope, $stateParams) {
 
-	$scope.appVersion = ''
+	$scope.AppVersion = ''
 	cordova.getAppVersion.getVersionNumber().then(function (AppVersion) {
-		$scope.appVersion = AppVersion;
+		$scope.AppVersion = AppVersion;
 	})
 	
 }])

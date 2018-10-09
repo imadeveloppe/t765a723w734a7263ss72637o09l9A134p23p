@@ -153,7 +153,7 @@
   },
   {
     "file": "js/controllers.js",
-    "hash": "dbe78d2b7c8b2358bea663aff1240410"
+    "hash": "582367f53357c762c5538b99443b4fe0"
   },
   {
     "file": "js/directives.js",
@@ -449,7 +449,7 @@
   },
   {
     "file": "templates/espaceEleve.html",
-    "hash": "5c4a74a216178161a5f266d249e163d4"
+    "hash": "53148db0eafd287b76136eec717c48f4"
   },
   {
     "file": "templates/home.html",
@@ -489,7 +489,7 @@
   },
   {
     "file": "templates/setting.html",
-    "hash": "84d114fa114adbbfdfe80c9747d48769"
+    "hash": "20845b943d0308bf11b438809aeaa6f8"
   },
   {
     "file": "templates/students.html",

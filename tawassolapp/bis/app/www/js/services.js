@@ -4,21 +4,22 @@ angular.module('app.services', [])
 .constant('API', {
     url: "https://tawassolapp.com/Client_/",
     server: "https://tawassolapp.com/",
-    appId: "com.tawassolapp.mirage"
+    appId: "com.tawassolapp.mirage",
+    // appId: "com.ionicframework.app538533"
 })
 
 // ///////////////////*********DEV*********///////////////////
 // .constant('API', {
 //     url: "http://dev.tawassolapp.com/Client_/",
 //     server: "http://dev.tawassolapp.com/",
-//     appId: "com.tawassolapp.institution.les.deux.palmiers"
+//     appId: "com.ionicframework.app538533"
 // })
 
 // ///////////////////*********LOCAL*********///////////////////
 // .constant('API', {
 //     url: "http://tawassolapp.local/Client_/",
 //     server: "http://tawassolapp.local/",
-//     appId: "com.tawassolapp.institution.les.deux.palmiers"
+//     appId: "com.ionicframework.app538533"
 // })
 
 .factory('$AjaxQuery', function($http, API){

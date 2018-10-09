@@ -145,7 +145,7 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="access[prescolaire][]" value="absence"> <span>Absence</span>
+                  <input type="checkbox" name="access[prescolaire][]" value="absence"> <span>Absence et Retard</span>
                 </label>
               </div>
 
@@ -190,15 +190,25 @@
                 </label>
               </div> 
 
-              <div class="checkbox">
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[prescolaire][]" value="gerer_eleves"> <span>Gérer les élèves</span>
+                  <input type="checkbox" class="readwrite" name="access[prescolaire][]" value="gerer_eleves"><span>Gérer les élèves</span>  
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[prescolaire][]" value="gerer_eleves_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
-
-              <div class="checkbox">
+              <div style="height: 10px"></div>
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[prescolaire][]" value="gerer_profs"> <span>Gérer les professeurs</span>
+                  <input type="checkbox" class="readwrite" name="access[prescolaire][]" value="gerer_profs"><span>Gérer les professeurs</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[prescolaire][]" value="gerer_profs_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
 
@@ -261,7 +271,7 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="access[primaire][]" value="absence"> <span>Absence</span>
+                  <input type="checkbox" name="access[primaire][]" value="absence"> <span>Absence et Retard</span>
                 </label>
               </div>
 
@@ -306,15 +316,25 @@
                 </label>
               </div> 
 
-              <div class="checkbox">
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[primaire][]" value="gerer_eleves"> <span>Gérer les élèves</span>
+                  <input type="checkbox" class="readwrite" name="access[primaire][]" value="gerer_eleves"><span>Gérer les élèves</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[primaire][]" value="gerer_eleves_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
-
-              <div class="checkbox">
+              <div style="height: 10px"></div>
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[primaire][]" value="gerer_profs"> <span>Gérer les professeurs</span>
+                  <input type="checkbox" class="readwrite" name="access[primaire][]" value="gerer_profs"><span>Gérer les professeurs</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[primaire][]" value="gerer_profs_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
 
@@ -378,7 +398,7 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="access[college][]" value="absence"> <span>Absence</span>
+                  <input type="checkbox" name="access[college][]" value="absence"> <span>Absence et Retard</span>
                 </label>
               </div>
 
@@ -423,15 +443,25 @@
                 </label>
               </div> 
 
-              <div class="checkbox">
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[college][]" value="gerer_eleves"> <span>Gérer les élèves</span>
+                  <input type="checkbox" class="readwrite" name="access[college][]" value="gerer_eleves"><span>Gérer les élèves</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[college][]" value="gerer_eleves_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
-
-              <div class="checkbox">
+              <div style="height: 10px"></div>
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[college][]" value="gerer_profs"> <span>Gérer les professeurs</span>
+                  <input type="checkbox" class="readwrite" name="access[college][]" value="gerer_profs"><span>Gérer les professeurs</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[college][]" value="gerer_profs_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
 
@@ -493,7 +523,7 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="access[lycee][]" value="absence"> <span>Absence</span>
+                  <input type="checkbox" name="access[lycee][]" value="absence"> <span>Absence et Retard</span>
                 </label>
               </div>
 
@@ -538,17 +568,27 @@
                 </label>
               </div> 
 
-              <div class="checkbox">
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[lycee][]" value="gerer_eleves"> <span>Gérer les élèves</span>
+                  <input type="checkbox" class="readwrite" name="access[lycee][]" value="gerer_eleves"><span>Gérer les élèves</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[lycee][]" value="gerer_eleves_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
               </div> 
-
-              <div class="checkbox">
+              <div style="height: 10px"></div>
+              <div class="checkbox checkrow">
                 <label>
-                  <input type="checkbox" name="access[lycee][]" value="gerer_profs"> <span>Gérer les professeurs</span>
+                  <input type="checkbox" class="readwrite" name="access[lycee][]" value="gerer_profs"><span>Gérer les professeurs</span> 
+                  <div class="checkbox">
+                      <label>
+                        <input type="checkbox" class="readonly" name="access[lycee][]" value="gerer_profs_readonly"> <span>Lecture seule</span>
+                      </label>
+                  </div>
                 </label>
-              </div> 
+              </div>  
 
                <h4 style="margin-top: 20px">
                 Historique des envois

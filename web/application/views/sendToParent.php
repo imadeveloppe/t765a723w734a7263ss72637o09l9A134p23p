@@ -22,21 +22,21 @@
           <div class="radio" style="padding: 0;">
             <label>
               <input type="radio" name="message_type" value="discipline" checked> <span style="position: relative;top: -4px;">
-                Administration (Parent/Elève)
+                Administration (aux parent et élève)
               </span>
             </label>
           </div>
           <div class="radio" style="padding: 0;">
             <label>
               <input type="radio" name="message_type" value="actualite"> <span style="position: relative;top: -4px;">
-                Événements (Parent/Elève)
+                Événements (aux parent et élève)
               </span>
             </label>
           </div>
           <div class="radio" style="padding: 0;">
             <label>
               <input type="radio" name="message_type" value="parent"> <span style="position: relative;top: -4px;">
-                Parent
+                Administration (juste au parent)
               </span>
             </label>
           </div>

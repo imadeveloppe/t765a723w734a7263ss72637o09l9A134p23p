@@ -118,9 +118,14 @@
             <div class="portlet-content">           
 
               <div class="table-responsive"> 
-              <div class="block-buttons" style="text-align: right;">
 
-              <?php if(!isset($_POST['classe']) &&  !isset($_POST['groupe'])): ?> 
+
+
+              <?php if( !hasAccess('gerer_eleves_readonly') or !$info['subAdmin'] ): ?> 
+              
+                <div class="block-buttons" style="text-align: right;">
+
+                  <?php if(!isset($_POST['classe']) &&  !isset($_POST['groupe'])): ?> 
                     <a class="btn btn-danger hidden-xs" data-toggle="modal" href="#tousSuspendre"> 
                       <strong>
                         <i class="fa fa-times-circle" aria-hidden="true" style="font-size: 20px;position: relative;bottom: -2px;"></i>
@@ -133,15 +138,17 @@
                         Tout valider 
                       </strong>
                     </a>
-                <?php endif; ?> 
+                  <?php endif; ?> 
 
-                <button class="btn btn-secondary" data-toggle="modal" href="#new-eleve">
-                  <strong>
-                    <i class="fa fa-plus-circle" style="font-size: 20px;""></i> 
-                    Nouvel élève
-                  </strong> 
-                </button>
+                  <button class="btn btn-secondary" data-toggle="modal" href="#new-eleve">
+                    <strong>
+                      <i class="fa fa-plus-circle" style="font-size: 20px;""></i> 
+                      Nouvel élève
+                    </strong> 
+                  </button>
                 </div>
+
+              <?php endif; ?> 
               
               <table 
                 class="table table-striped table-bordered table-hover table-highlight table-checkable" 
@@ -166,9 +173,17 @@
                       <th data-filterable="false" data-sortable="false">Mot de passe</th>
                       <th data-filterable="false" class="hidden-xs">Tel Parent</th>
                       <th data-filterable="false" class="center">Carte Elève</th>
-                      <th data-filterable="false" class="hidden-xs center">Modifier</th>
-                      <th data-filterable="false" class="center">Valider <span class="badge btn-primary"><?= $validateUsers ?>/<?= count($eleves) ?></span> </th>
-                      <th data-filterable="false" class="hidden-xs center">Supprimer</th>
+
+                      
+                      <?php if( !hasAccess('gerer_eleves_readonly') or !$info['subAdmin']): ?> 
+                        <th data-filterable="false" class="hidden-xs center">Modifier</th>
+                      <?php endif; ?> 
+                        <th data-filterable="false" class="center">Valider <span class="badge btn-primary"><?= $validateUsers ?>/<?= count($eleves) ?></span> </th> 
+                     <?php if( !hasAccess('gerer_eleves_readonly') or !$info['subAdmin']): ?> 
+                        <th data-filterable="false" class="hidden-xs center">Supprimer</th>
+                      <?php endif; ?> 
+
+
                     </tr>
                   </thead>
                   <tbody>
@@ -224,26 +239,36 @@
                             <i class="fa fa-id-card" aria-hidden="true"></i> 
                           </a>
                       </td> 
-
-                      <td class="hidden-xs center"> 
-                        <a  
-                          data-toggle="modal" 
-                          href="#edit-info-eleve"  
-
-                          class="btn btn-warning edit-row">
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </td>  
-
-                      <td class="center">
-                        <a href="#" class="valid-row <?= ($eleve->state == '1') ? 'active' : '' ?>"></a> 
-                      </td> 
                       
-                      <td class="hidden-xs center">
-                        <a  data-toggle="modal" href="#confirmation" class="btn btn-danger remove-row">
-                          <i class="fa fa-trash-o"></i>
-                        </a>
-                      </td>
+
+                      <?php if( !hasAccess('gerer_eleves_readonly') or !$info['subAdmin']): ?> 
+                          <td class="hidden-xs center"> 
+                            <a  
+                              data-toggle="modal" 
+                              href="#edit-info-eleve"  
+
+                              class="btn btn-warning edit-row">
+                              <i class="fa fa-pencil"></i>
+                            </a>
+                          </td>  
+                      <?php endif; ?> 
+
+                          <td class="center">
+                          <?php if( !hasAccess('gerer_eleves_readonly') or !$info['subAdmin']): ?> 
+                            <a href="#" class="valid-row <?= ($eleve->state == '1') ? 'active' : '' ?>"></a> 
+                           <?php else: ?> 
+                              <span style="cursor: not-allowed;"  class="valid-row <?= ($eleve->state == '1') ? 'active' : '' ?>"></span> 
+                            <?php endif; ?>
+                          </td> 
+                      <?php if( !hasAccess('gerer_eleves_readonly') or !$info['subAdmin']): ?>    
+                          <td class="hidden-xs center">
+                            <a  data-toggle="modal" href="#confirmation" class="btn btn-danger remove-row">
+                              <i class="fa fa-trash-o"></i>
+                            </a>
+                          </td> 
+                      <?php endif; ?> 
+
+
                     </tr> 
                   <?php endforeach; ?>
 
@@ -384,7 +409,7 @@ $(document).ready(function() {
      if(data.remarque != '') card.find("#carte-remartque").html(data.remarque); else card.find("#carte-remartque").html( card.find("#carte-remartque").attr('data-content') )
   })
 
-  $('td .valid-row').click(function() {
+  $('td a.valid-row').click(function() {
     var self = $(this);
     if( self.parents('tr').find('.telParent').text() != '' ){
       self.toggleClass('active').parents('tr').toggleClass('NewInscription');

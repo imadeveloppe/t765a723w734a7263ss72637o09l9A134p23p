@@ -1,0 +1,14 @@
+sudo keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+
+sudo ionic cordova build --release
+
+sudo jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore android-release-unsigned.apk alias_name
+
+5gHSshJKD6
+
+cd /Users/pro/Library/Android/sdk/build-tools/27.0.3
+
+./zipalign -v 4 /volumes/ssd/st/git/tawassolapp/tawassolapp/android-release-unsigned.apk /volumes/ssd/st/git/tawassolapp/tawassolapp/tawassolapp.apk
+
+--------
+

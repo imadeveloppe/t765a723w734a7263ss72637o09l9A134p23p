@@ -1,18 +1,28 @@
 <ion-view title="Espace mon enfant" id="espaceleve">
   <ion-content padding="true" class="has-header" style="font-size: 16px; background: {{ customBackground }}; background-size: 100% auto ;background-size: cover;">
     
-    <div class="content-message" style="color: #000;padding: 15px 12px;">
-    	<p>
-	    	Vous trouverez ci joint<br>
-			Le lien et les codes d'accès à l espace web de votre enfant pour consulter:<br>
-			- Emploi du temps <br>
-			- Courrier de ses professeurs (exercices,...)<br>
-			- Événement (examen...)<br>
-			- ....<br><br>
-	    </p>
-	    <p><strong>URL: </strong>  www.tawassolapp.com/myspace</p>
-	    <p><strong>Identifiant: </strong>  {{ userInfo.code }} </p>
-	    <p><strong>Mot de passe: </strong>  {{ userInfo.password }} </p> 
+    <div class="content-message" style="color: #000;padding: 15px 12px;"> 
+		
+		<p>
+	    My space est un espace web dédié à votre fils.
+		Il y trouveras :<br>
+		- son emploi du temps <br>
+		- le courrier de ses professeurs (cours, exercices, ...)<br>
+		- les notifications et les événements issus de l'administration.<br><br>
+		</p>
+
+		<p>
+			Pour le consulter, voici le lien et les codes d'accès :
+		</p>
+		<p>
+			<strong>URL :</strong> www.tawassolapp.com/myspace
+		</p>
+		<p>
+			<strong>Identifiant :</strong> {{ userInfo.code }}
+		</p>
+		<p>
+			<strong>Mot de passe :</strong> {{ userInfo.password }}
+		</p>
 	</div>
 
   </ion-content>   

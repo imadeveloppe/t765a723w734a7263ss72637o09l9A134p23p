@@ -118,7 +118,7 @@
            
           <div class="col-sm-1 col-xs-1  heading-dot pull-right">
             <a href="" class="openMenu">
-              <i class="fa fa-ellipsis-v fa-2x pull-right" aria-hidden="true"></i>
+              <i class="fa fa-bars fa-2x pull-right" aria-hidden="true"></i>
             </a> 
           </div>
         </div>
@@ -143,11 +143,11 @@
               </div>
               <div class="pj" style="display: none;">
                 <a href="" class="venobox">
-                  <img src="https://guykawasaki.com/wp-content/uploads/2015/02/Stocksy_txp38b1499fkFK000_Small_485368.jpg">
+                  <img src="http://rs712.pbsrc.com/albums/ww127/FraktalRadio/opacity.png~c200">
                 </a>
               </div>
               <div class="pj-file" style="display: none;">
-                <a href="" target="_blank"><img src="http://icons.iconarchive.com/icons/pelfusion/flat-file-type/256/doc-icon.png"></a>
+                <a href="" target="_blank"><img src=""></a>
               </div>
             </div>
           </div> 
@@ -305,6 +305,10 @@
             }
        })
     })
+
+    if($(window).width() > 700){
+      $('.side-two').addClass('active')
+    }
 
   })
 
